@@ -13,7 +13,11 @@ set -xe
 
 # G - grep NAMEs
 [[ "$1" == "-g" ]] && { shift ; G="$1" ; shift ; } || G=
-E=EEMPTY         # (shortcut)
+
+## static
+E=EMPTY              # (shortcut)
+OSVER=7
+FPREFIX='image-streams-'
 
 ## GLOBAL=      # Example
 NAME=$E         # httpd
@@ -24,10 +28,9 @@ DESCRIPTION=$E  # Build and serve static content via Apache HTTP Server (httpd) 
 ICONCLASS=$E    # icon-apache
 TAGS=$E         # builder,httpd
 
-# TODO: select
-REGISTRY='registry.access.redhat.com/rhscl'     # registry.access.redhat.com/rhscl
-OSNAME='rhel'   # rhel
-OSVER=7         # 7
+# manually set REGISTRY OSNAME
+REGISTRY=$E
+OSNAME=$E
 
 # $1 - file
 load_all_vars () {
@@ -167,28 +170,29 @@ get_names_and_files () {
 
 ## Reads $NAME $file (from `get_names_and_files`)
 # !!! Expects sorted input !!!
-# Writes out image-streams in json format.
+# Writes image-streams in json format to file.
 # Gets info parsing $file in
 # $@ - work dirs
 main () {
-  w_static_top
+  {
+    w_static_top
 
-  local prev=   # previous NAME
-  while read NAME file; do
-    # every imagestream only once
-    [[ "$NAME" == "$prev" ]] && continue
-    prev="$NAME"
+    local prev=   # previous NAME
+    while read NAME file; do
+      # every imagestream only once
+      [[ "$NAME" == "$prev" ]] && continue
+      prev="$NAME"
 
-    load_all_vars "$file"
-    w_header
+      load_all_vars "$file"
+      w_header
+        body "$@"
+      w_footer
+    done \
+      | head -n -2    # remove },{ from the last footer
 
-    body "$@"
-
-    w_footer
-  done \
-    | head -n -2    # remove },{ from the last footer
-
-  w_static_footer
+    w_static_footer
+  } \
+    > ${FPREFIX}${OSNAME}${OSVER}.json
 }
 
 ## Writes all image-streams for $NAME
@@ -214,5 +218,13 @@ body () {
 }
 
 ## exec
-get_names_and_files "$@" | main "$@"
+FN="`get_names_and_files "$@"`"
+
+REGISTRY='registry.access.redhat.com/rhscl'
+OSNAME='rhel'
+main "$@" <<< "$FN"
+
+REGISTRY='centos'
+OSNAME='centos'
+main "$@" <<< "$FN"
 exit 0
