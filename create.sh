@@ -1,21 +1,54 @@
 #!/bin/bash
 #
-
+# ./create.sh [options] WDIR1 [WDIR2 [WDIR3]]
+#   -g REG      # regex for grep; to grep image-stream NAMEs
+#   WDIRn       # working directory/ies to scan for json etc.
+#
+#   Produces(overwrites!) files in current directory:
+#      image-streams{centos,rhel}7.json
+#
+# Author: pvalena@redhat.com
+#
 set -xe
 
 # G - grep NAMEs
 [[ "$1" == "-g" ]] && { shift ; G="$1" ; shift ; } || G=
+E=EEMPTY         # (shortcut)
 
-# $@ - folders
-get_names_and_files () {
-  for dir in "$@"; do
-    find "$dir" -type f -iname '*.json' \
-      | while read file; do
-          name="`get_name "$file"`"
-          [[ -n "$name" ]] && echo "$name $file" || :
-        done \
-      | sort -u
-  done
+## GLOBAL=      # Example
+NAME=$E         # httpd
+DISPLAYNAME=$E  # Apache HTTP Server (httpd)
+VERSION=$E      # 2.4
+CONTVER=$E      # 24
+DESCRIPTION=$E  # Build and serve static content via Apache HTTP Server (httpd) on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/httpd-container/blob/master/2.4/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Httpd available on OpenShift, including major versions updates.
+ICONCLASS=$E    # icon-apache
+TAGS=$E         # builder,httpd
+
+# TODO: select
+REGISTRY='registry.access.redhat.com/rhscl'     # registry.access.redhat.com/rhscl
+OSNAME='rhel'   # rhel
+OSVER=7         # 7
+
+# $1 - file
+load_all_vars () {
+  while read x y; do
+    [[ -z "$x" || -z "$y" ]] && continue
+    eval "$x=\"`get_var "$y" "$1"`\""
+  done <<< \
+    "
+      DISPLAYNAME openshift.io/display-name
+      DESCRIPTION description
+      ICONCLASS   iconClass
+      TAGS        tags
+    "
+}
+
+# $1 - key
+# $2 - file
+get_var () {
+  grep "\"$1\": \"" "$2" \
+    | cut -d'"' -f4 \
+    | head -1
 }
 
 get_name () {
@@ -33,59 +66,27 @@ get_name () {
     | cut -d'"' -f2 \
     | grep -v '^[0-9]' \
     | grep -v '^\$' \
-    | grep "$G" \
+    | grep -E "$G" \
     | head -1 || :
 }
 
-## GLOBAL=    # Example
-NAME=         # httpd
-DISPLAYNAME=  # Apache HTTP Server (httpd)
-VERSION=      # 2.4
-DESCRIPTION=  # Build and serve static content via Apache HTTP Server (httpd) on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/httpd-container/blob/master/2.4/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Httpd available on OpenShift, including major versions updates.
-ICONCLASS=    # icon-apache
-TAGS=         # builder,httpd
-REGISTRY=     # registry.access.redhat.com/rhscl
-OSNAME=       # rhel
-CONTVER=      # 24
-OSVER=        # 7
 
-# $1 - file
-get_vars () {
-  DISPLAYNAME="$(
-    grep 'openshift.io/display-name' "$1" \
-      | cut -d'"' -f4
-  )"
-}
-
-body () {
-  local ARGS='-maxdepth 1 -mindepth 1 -type d'
-  for dir in "$@"; do
-    (
-      find "$dir/${NAME}-container" ${ARGS} || :
-      find "$dir/s2i-${NAME}-container" ${ARGS} || :
-    ) \
-      | xargs -n1 basename | grep -E '^[0-9]' | sort -Vr
-  done \
-    | while read VERSION; do
-      imagestream
-    done
-}
-
-#######################
-
-static_top () {
+########################
+## json format templates
+########################
+w_static_top () {
   cat <<EOJS
 {
   "kind": "ImageStreamList",
   "apiVersion": "v1",
   "metadata": {},
   "items": [
+    {
 EOJS
 }
 
-header () {
+w_header () {
   cat <<EOJS
-    {
       "kind": "ImageStream",
       "apiVersion": "v1",
       "metadata": {
@@ -97,24 +98,11 @@ header () {
       "spec": {
         "tags": [
           {
-            "name": "latest",
-            "annotations": {
-              "openshift.io/display-name": "${DISPLAYNAME} (latest)",
-              "description": "${DESCRIPTION}\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB available on OpenShift, including major versions updates.",
-              "iconClass": "${ICONCLASS}",
-              "tags": "${TAGS}"
-            },
-            "from": {
-              "kind": "ImageStreamTag",
-              "name": "${VERSION}"
-            }
 EOJS
 }
 
-imagestream () {
+w_imagestream () {
   cat <<EOJS
-          },
-          {
             "name": "${VERSION}",
             "annotations": {
               "openshift.io/display-name": "${DISPLAYNAME} ${VERSION}",
@@ -127,44 +115,104 @@ imagestream () {
               "kind": "DockerImage",
               "name": "${REGISTRY}/${NAME}-${CONTVER}-${OSNAME}${OSVER}:latest"
             }
+          },
+          {
 EOJS
 }
 
-footer () {
+w_footer () {
   cat <<EOJS
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "${DISPLAYNAME} (latest)",
+              "description": "${DESCRIPTION}\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of ${DISPLAYNAME} available on OpenShift, including major versions updates.",
+              "iconClass": "${ICONCLASS}",
+              "tags": "${TAGS}"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "${VERSION}"
+            }
           }
         ]
       }
+    },
+    {
 EOJS
 }
 
-static_footer () {
+w_static_footer () {
   cat <<EOJS
     }
   ]
 }
 EOJS
 }
+########################
 
-#######################
+## Writes out "$name $file" pairs
+# from for all json files in
+# $@ - work dirs
+get_names_and_files () {
+  for dir in "$@"; do
+    find "$dir" -type f -iname '*.json' \
+      | while read file; do
+          name="`get_name "$file"`"
+          # $NAME global
+          [[ -n "$name" ]] && echo "$name $file" || :
+        done \
+      | sort -u
+  done
+}
 
-## reads from `get_names_and_files`
+## Reads $NAME $file (from `get_names_and_files`)
+# !!! Expects sorted input !!!
+# Writes out image-streams in json format.
+# Gets info parsing $file in
+# $@ - work dirs
 main () {
-  static_top
+  w_static_top
 
   local prev=   # previous NAME
   while read NAME file; do
+    # every imagestream only once
     [[ "$NAME" == "$prev" ]] && continue
     prev="$NAME"
 
-    get_vars "$file"
-    header
-    body "$@"
-    footer
-  done
+    load_all_vars "$file"
+    w_header
 
-  static_footer
+    body "$@"
+
+    w_footer
+  done \
+    | head -n -2    # remove },{ from the last footer
+
+  w_static_footer
 }
 
+## Writes all image-streams for $NAME
+# Looks for subdirs(=>$VERSIONs) in
+# $@ - work dirs
+body () {
+  while read v; do
+    VERSION="$v"
+    CONTVER="`sed -e 's/\.//g' <<< "$v"`"
+    w_imagestream
+  done \
+    < <(
+      local args='-maxdepth 1 -mindepth 1 -type d'
+
+      for dir in "$@"; do
+        find "$dir/${NAME}-container" ${args} || :
+        find "$dir/s2i-${NAME}-container" ${args} || :
+      done \
+        | xargs -n1 basename \
+        | grep -E '^[0-9]' \
+        | sort -V                 # version sort
+    )
+}
+
+## exec
 get_names_and_files "$@" | main "$@"
 exit 0
