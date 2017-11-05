@@ -74,9 +74,9 @@ get_name () {
 }
 
 
-########################
-## json format templates
-########################
+##########################
+## json format templates #
+##########################
 w_static_top () {
   cat <<EOJS
 {
@@ -109,6 +109,7 @@ w_imagestream () {
             "name": "${VERSION}",
             "annotations": {
               "openshift.io/display-name": "${DISPLAYNAME} ${VERSION}",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
               "description": "${DESCRIPTION}",
               "iconClass": "${ICONCLASS}",
               "tags": "${TAGS}",
@@ -128,6 +129,7 @@ w_footer () {
             "name": "latest",
             "annotations": {
               "openshift.io/display-name": "${DISPLAYNAME} (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
               "description": "${DESCRIPTION}\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of ${DISPLAYNAME} available on OpenShift, including major versions updates.",
               "iconClass": "${ICONCLASS}",
               "tags": "${TAGS}"
