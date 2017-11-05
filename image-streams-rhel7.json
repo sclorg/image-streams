@@ -8,8 +8,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "httpd",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "Apache HTTP Server (httpd)"
                 }
@@ -31,11 +29,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/httpd-24-rhel7"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -52,17 +45,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "2.4"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -70,8 +55,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "ruby",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "Ruby"
                 }
@@ -93,11 +76,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/openshift3/ruby-20-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -115,11 +93,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/ruby-22-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -137,11 +110,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/ruby-23-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -159,11 +127,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/ruby-24-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -180,17 +143,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "2.4"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -198,8 +153,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "nodejs",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "Node.js"
                 }
@@ -221,11 +174,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/openshift3/nodejs-010-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -243,11 +191,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/nodejs-4-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -265,11 +208,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/nodejs-6-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -286,17 +224,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "6"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -304,8 +234,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "php",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "PHP"
                 }
@@ -327,11 +255,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/openshift3/php-55-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -349,11 +272,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/php-56-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -371,11 +289,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/php-70-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -392,17 +305,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "7.0"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -410,8 +315,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "python",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "Python"
                 }
@@ -433,11 +336,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/python-27-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -455,11 +353,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/openshift3/python-33-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -477,11 +370,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/python-34-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -499,11 +387,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/python-35-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -520,17 +403,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "3.5"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -538,8 +413,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "mysql",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "MySQL"
                 }
@@ -559,11 +432,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/openshift3/mysql-55-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -579,11 +447,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/mysql-56-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -599,11 +462,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/mysql-57-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -618,17 +476,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "5.7"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -636,8 +486,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "mariadb",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "MariaDB"
                 }
@@ -657,11 +505,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/mariadb-101-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -676,17 +519,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "10.1"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -694,8 +529,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "postgresql",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "PostgreSQL"
                 }
@@ -715,11 +548,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/openshift3/postgresql-92-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -735,11 +563,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/postgresql-94-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -755,11 +578,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/postgresql-95-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -774,17 +592,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "9.5"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -792,8 +602,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "mongodb",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "MongoDB"
                 }
@@ -813,11 +621,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/openshift3/mongodb-24-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -833,11 +636,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/mongodb-26-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -853,11 +651,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/mongodb-32-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -872,17 +665,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "3.2"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         },
         {
@@ -890,8 +675,6 @@
             "apiVersion": "v1",
             "metadata": {
                 "name": "redis",
-                "generation": 1,
-                "creationTimestamp": null,
                 "annotations": {
                     "openshift.io/display-name": "Redis"
                 }
@@ -911,11 +694,6 @@
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.access.redhat.com/rhscl/redis-32-rhel7:latest"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     },
                     {
@@ -930,17 +708,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "name": "3.2"
-                        },
-                        "generation": 1,
-                        "importPolicy": {},
-                        "referencePolicy": {
-                            "type": "Source"
                         }
                     }
                 ]
-            },
-            "status": {
-                "dockerImageRepository": ""
             }
         }
     ]
