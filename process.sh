@@ -7,28 +7,36 @@ proj_exists () {
   return 0
 }
 
-while [[ -n "$1" ]] ; do
-  F="$1"
-  [[ -r "$F" ]] || exit 1
-  shift
+sed_d () {
+  sed -e "/^\s*\"$1\s*$/ d"
+}
 
-  while :; do
-    let "C = 0 + $RANDOM"
-    proj_exists "$C" && continue || :
+while [[ -n "$1" ]] ; do
+  F="$1" ; shift
+  [[ -r "$F" ]]
+
+  while let "C = 0 + $RANDOM"; do
+  proj_exists "$C" || {
     oc new-project "newis-$C" 1>/dev/null
     proj_exists "$C"
 
     R="`oc create -f "$F"`"
-
     echo "$R" \
       | cut -d'"' -f2 \
       | grep -v ^$ \
       | xargs -n1 -i echo "is/{}" \
       | xargs oc export -o json \
-      | tee "$F" || :
+      | sed_d 'generation": 1,' \
+      | sed_d 'importPolicy": {},' \
+      | sed_d 'referencePolicy": {' \
+      | sed_d 'type": "Source"' \
+      | sed_d 'creationTimestamp": null,' \
+      | sed_d 'status": {' \
+      | sed_d 'dockerImageRepository": ""' \
+      | tee "$F"
 
     oc delete project "newis-$C"
-
-  break
+    break
+  }
   done
 done
