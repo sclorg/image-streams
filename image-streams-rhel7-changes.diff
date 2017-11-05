@@ -1,0 +1,908 @@
+diff --git a/image-streams-rhel7.json b/image-streams-rhel7.json
+index 9d8f776..28a471d 100644
+--- a/image-streams-rhel7.json
++++ b/image-streams-rhel7.json
+@@ -9,7 +9,7 @@
+             "metadata": {
+                 "name": "httpd",
+                 "annotations": {
+-                    "openshift.io/display-name": "Apache HTTP Server (httpd)"
++                    "openshift.io/display-name": "Apache HTTP Server"
+                 }
+             },
+             "spec": {
+@@ -17,30 +17,26 @@
+                     {
+                         "name": "2.4",
+                         "annotations": {
+-                            "description": "Build and serve static content via Apache HTTP Server (httpd) 2.4 on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/httpd-container/blob/master/2.4/README.md.",
++                            "description": "An example Apache HTTP Server (httpd) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/httpd-ex/blob/master/README.md.",
+                             "iconClass": "icon-apache",
+                             "openshift.io/display-name": "Apache HTTP Server 2.4",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/httpd-ex.git",
+-                            "supports": "httpd",
+-                            "tags": "builder,httpd",
++                            "tags": "quickstart,httpd",
+                             "version": "2.4"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/rhscl/httpd-24-rhel7"
++                            "name": "registry.access.redhat.com/rhscl/httpd-24-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Build and serve static content via Apache HTTP Server (httpd) on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/httpd-container/blob/master/2.4/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Httpd available on OpenShift, including major versions updates.",
++                            "description": "An example Apache HTTP Server (httpd) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/httpd-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Apache HTTP Server available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-apache",
+-                            "openshift.io/display-name": "Apache HTTP Server (Latest)",
++                            "openshift.io/display-name": "Apache HTTP Server (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/httpd-ex.git",
+-                            "supports": "httpd",
+-                            "tags": "builder,httpd"
++                            "tags": "quickstart,httpd"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+@@ -56,19 +52,34 @@
+             "metadata": {
+                 "name": "mariadb",
+                 "annotations": {
+-                    "openshift.io/display-name": "MariaDB"
++                    "openshift.io/display-name": "MariaDB (Ephemeral)"
+                 }
+             },
+             "spec": {
+                 "tags": [
+                     {
++                        "name": "10.0",
++                        "annotations": {
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "iconClass": "icon-mariadb",
++                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.0",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "database,mariadb",
++                            "version": "10.0"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/mariadb-100-rhel7:latest"
++                        }
++                    },
++                    {
+                         "name": "10.1",
+                         "annotations": {
+-                            "description": "Provides a MariaDB 10.1 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/tree/master/10.1/README.md.",
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-mariadb",
+-                            "openshift.io/display-name": "MariaDB 10.1",
++                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.1",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mariadb",
++                            "tags": "database,mariadb",
+                             "version": "10.1"
+                         },
+                         "from": {
+@@ -77,17 +88,32 @@
+                         }
+                     },
+                     {
++                        "name": "10.2",
++                        "annotations": {
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "iconClass": "icon-mariadb",
++                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.2",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "database,mariadb",
++                            "version": "10.2"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/mariadb-102-rhel7:latest"
++                        }
++                    },
++                    {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Provides a MariaDB database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/tree/master/10.1/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB available on OpenShift, including major versions updates.",
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB (Ephemeral) available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-mariadb",
+-                            "openshift.io/display-name": "MariaDB (Latest)",
++                            "openshift.io/display-name": "MariaDB (Ephemeral) (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mariadb"
++                            "tags": "database,mariadb"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+-                            "name": "10.1"
++                            "name": "10.2"
+                         }
+                     }
+                 ]
+@@ -99,7 +125,7 @@
+             "metadata": {
+                 "name": "mongodb",
+                 "annotations": {
+-                    "openshift.io/display-name": "MongoDB"
++                    "openshift.io/display-name": "MongoDB (Ephemeral)"
+                 }
+             },
+             "spec": {
+@@ -107,26 +133,26 @@
+                     {
+                         "name": "2.4",
+                         "annotations": {
+-                            "description": "Provides a MongoDB 2.4 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/tree/master/2.4/README.md.",
++                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-mongodb",
+-                            "openshift.io/display-name": "MongoDB 2.4",
++                            "openshift.io/display-name": "MongoDB (Ephemeral) 2.4",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "hidden,mongodb",
++                            "tags": "database,mongodb",
+                             "version": "2.4"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/mongodb-24-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/mongodb-24-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "2.6",
+                         "annotations": {
+-                            "description": "Provides a MongoDB 2.6 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/tree/master/2.6/README.md.",
++                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-mongodb",
+-                            "openshift.io/display-name": "MongoDB 2.6",
++                            "openshift.io/display-name": "MongoDB (Ephemeral) 2.6",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mongodb",
++                            "tags": "database,mongodb",
+                             "version": "2.6"
+                         },
+                         "from": {
+@@ -135,13 +161,28 @@
+                         }
+                     },
+                     {
++                        "name": "3.0-upg",
++                        "annotations": {
++                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "iconClass": "icon-mongodb",
++                            "openshift.io/display-name": "MongoDB (Ephemeral) 3.0-upg",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "database,mongodb",
++                            "version": "3.0-upg"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/mongodb-30-upg-rhel7:latest"
++                        }
++                    },
++                    {
+                         "name": "3.2",
+                         "annotations": {
+-                            "description": "Provides a MongoDB 3.2 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/tree/master/3.2/README.md.",
++                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-mongodb",
+-                            "openshift.io/display-name": "MongoDB 3.2",
++                            "openshift.io/display-name": "MongoDB (Ephemeral) 3.2",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mongodb",
++                            "tags": "database,mongodb",
+                             "version": "3.2"
+                         },
+                         "from": {
+@@ -152,11 +193,11 @@
+                     {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Provides a MongoDB database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/tree/master/3.2/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MongoDB available on OpenShift, including major versions updates.",
++                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MongoDB (Ephemeral) available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-mongodb",
+-                            "openshift.io/display-name": "MongoDB (Latest)",
++                            "openshift.io/display-name": "MongoDB (Ephemeral) (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mongodb"
++                            "tags": "database,mongodb"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+@@ -172,7 +213,7 @@
+             "metadata": {
+                 "name": "mysql",
+                 "annotations": {
+-                    "openshift.io/display-name": "MySQL"
++                    "openshift.io/display-name": "MySQL (Ephemeral)"
+                 }
+             },
+             "spec": {
+@@ -180,26 +221,26 @@
+                     {
+                         "name": "5.5",
+                         "annotations": {
+-                            "description": "Provides a MySQL 5.5 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.5/README.md.",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-mysql-database",
+-                            "openshift.io/display-name": "MySQL 5.5",
++                            "openshift.io/display-name": "MySQL (Ephemeral) 5.5",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "hidden,mysql",
++                            "tags": "database,mysql",
+                             "version": "5.5"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/mysql-55-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/mysql-55-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "5.6",
+                         "annotations": {
+-                            "description": "Provides a MySQL 5.6 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.6/README.md.",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-mysql-database",
+-                            "openshift.io/display-name": "MySQL 5.6",
++                            "openshift.io/display-name": "MySQL (Ephemeral) 5.6",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mysql",
++                            "tags": "database,mysql",
+                             "version": "5.6"
+                         },
+                         "from": {
+@@ -210,11 +251,11 @@
+                     {
+                         "name": "5.7",
+                         "annotations": {
+-                            "description": "Provides a MySQL 5.7 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.7/README.md.",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-mysql-database",
+-                            "openshift.io/display-name": "MySQL 5.7",
++                            "openshift.io/display-name": "MySQL (Ephemeral) 5.7",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mysql",
++                            "tags": "database,mysql",
+                             "version": "5.7"
+                         },
+                         "from": {
+@@ -225,11 +266,11 @@
+                     {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Provides a MySQL database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.6/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL available on OpenShift, including major versions updates.",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL (Ephemeral) available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-mysql-database",
+-                            "openshift.io/display-name": "MySQL (Latest)",
++                            "openshift.io/display-name": "MySQL (Ephemeral) (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "mysql"
++                            "tags": "database,mysql"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+@@ -243,6 +284,94 @@
+             "kind": "ImageStream",
+             "apiVersion": "v1",
+             "metadata": {
++                "name": "nginx",
++                "annotations": {
++                    "openshift.io/display-name": "Nginx HTTP server and a reverse proxy"
++                }
++            },
++            "spec": {
++                "tags": [
++                    {
++                        "name": "1.10",
++                        "annotations": {
++                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
++                            "iconClass": "icon-nginx",
++                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.10",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,nginx",
++                            "version": "1.10"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/nginx-110-rhel7:latest"
++                        }
++                    },
++                    {
++                        "name": "1.12",
++                        "annotations": {
++                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
++                            "iconClass": "icon-nginx",
++                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.12",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,nginx",
++                            "version": "1.12"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/nginx-112-rhel7:latest"
++                        }
++                    },
++                    {
++                        "name": "1.6",
++                        "annotations": {
++                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
++                            "iconClass": "icon-nginx",
++                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.6",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,nginx",
++                            "version": "1.6"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/nginx-16-rhel7:latest"
++                        }
++                    },
++                    {
++                        "name": "1.8",
++                        "annotations": {
++                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
++                            "iconClass": "icon-nginx",
++                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.8",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,nginx",
++                            "version": "1.8"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/nginx-18-rhel7:latest"
++                        }
++                    },
++                    {
++                        "name": "latest",
++                        "annotations": {
++                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Nginx HTTP server and a reverse proxy available on OpenShift, including major versions updates.",
++                            "iconClass": "icon-nginx",
++                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy (latest)",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,nginx"
++                        },
++                        "from": {
++                            "kind": "ImageStreamTag",
++                            "name": "1.12"
++                        }
++                    }
++                ]
++            }
++        },
++        {
++            "kind": "ImageStream",
++            "apiVersion": "v1",
++            "metadata": {
+                 "name": "nodejs",
+                 "annotations": {
+                     "openshift.io/display-name": "Node.js"
+@@ -253,30 +382,26 @@
+                     {
+                         "name": "0.10",
+                         "annotations": {
+-                            "description": "DEPRECATED: Build and run Node.js 0.10 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/0.10/README.md.",
++                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
+                             "iconClass": "icon-nodejs",
+                             "openshift.io/display-name": "Node.js 0.10",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/nodejs-ex.git",
+-                            "supports": "nodejs:0.10,nodejs:0.1,nodejs",
+-                            "tags": "hidden,nodejs",
++                            "tags": "quickstart,nodejs",
+                             "version": "0.10"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/nodejs-010-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/nodejs-010-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "4",
+                         "annotations": {
+-                            "description": "Build and run Node.js 4 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/4/README.md.",
++                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
+                             "iconClass": "icon-nodejs",
+                             "openshift.io/display-name": "Node.js 4",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/nodejs-ex.git",
+-                            "supports": "nodejs:4,nodejs",
+-                            "tags": "builder,nodejs",
++                            "tags": "quickstart,nodejs",
+                             "version": "4"
+                         },
+                         "from": {
+@@ -287,13 +412,11 @@
+                     {
+                         "name": "6",
+                         "annotations": {
+-                            "description": "Build and run Node.js 6 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container.",
++                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
+                             "iconClass": "icon-nodejs",
+                             "openshift.io/display-name": "Node.js 6",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/nodejs-ex.git",
+-                            "supports": "nodejs:6,nodejs",
+-                            "tags": "builder,nodejs",
++                            "tags": "quickstart,nodejs",
+                             "version": "6"
+                         },
+                         "from": {
+@@ -302,19 +425,32 @@
+                         }
+                     },
+                     {
++                        "name": "8",
++                        "annotations": {
++                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
++                            "iconClass": "icon-nodejs",
++                            "openshift.io/display-name": "Node.js 8",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,nodejs",
++                            "version": "8"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/nodejs-8-rhel7:latest"
++                        }
++                    },
++                    {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Build and run Node.js applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/4/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Node.js available on OpenShift, including major versions updates.",
++                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Node.js available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-nodejs",
+-                            "openshift.io/display-name": "Node.js (Latest)",
++                            "openshift.io/display-name": "Node.js (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/nodejs-ex.git",
+-                            "supports": "nodejs",
+-                            "tags": "builder,nodejs"
++                            "tags": "quickstart,nodejs"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+-                            "name": "6"
++                            "name": "8"
+                         }
+                     }
+                 ]
+@@ -326,7 +462,7 @@
+             "metadata": {
+                 "name": "php",
+                 "annotations": {
+-                    "openshift.io/display-name": "PHP"
++                    "openshift.io/display-name": "CakePHP"
+                 }
+             },
+             "spec": {
+@@ -334,30 +470,26 @@
+                     {
+                         "name": "5.5",
+                         "annotations": {
+-                            "description": "Build and run PHP 5.5 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-php-container/blob/master/5.5/README.md.",
++                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+                             "iconClass": "icon-php",
+-                            "openshift.io/display-name": "PHP 5.5",
++                            "openshift.io/display-name": "CakePHP 5.5",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/cakephp-ex.git",
+-                            "supports": "php:5.5,php",
+-                            "tags": "hidden,builder,php",
++                            "tags": "quickstart,php,cakephp",
+                             "version": "5.5"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/php-55-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/php-55-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "5.6",
+                         "annotations": {
+-                            "description": "Build and run PHP 5.6 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-php-container/blob/master/5.6/README.md.",
++                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+                             "iconClass": "icon-php",
+-                            "openshift.io/display-name": "PHP 5.6",
++                            "openshift.io/display-name": "CakePHP 5.6",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/cakephp-ex.git",
+-                            "supports": "php:5.6,php",
+-                            "tags": "builder,php",
++                            "tags": "quickstart,php,cakephp",
+                             "version": "5.6"
+                         },
+                         "from": {
+@@ -368,13 +500,11 @@
+                     {
+                         "name": "7.0",
+                         "annotations": {
+-                            "description": "Build and run PHP 7.0 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-php-container/blob/master/7.0/README.md.",
++                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+                             "iconClass": "icon-php",
+-                            "openshift.io/display-name": "PHP 7.0",
++                            "openshift.io/display-name": "CakePHP 7.0",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/cakephp-ex.git",
+-                            "supports": "php:7.0,php",
+-                            "tags": "builder,php",
++                            "tags": "quickstart,php,cakephp",
+                             "version": "7.0"
+                         },
+                         "from": {
+@@ -383,19 +513,32 @@
+                         }
+                     },
+                     {
++                        "name": "7.1",
++                        "annotations": {
++                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
++                            "iconClass": "icon-php",
++                            "openshift.io/display-name": "CakePHP 7.1",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,php,cakephp",
++                            "version": "7.1"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/php-71-rhel7:latest"
++                        }
++                    },
++                    {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Build and run PHP applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-php-container/blob/master/5.6/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PHP available on OpenShift, including major versions updates.",
++                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of CakePHP available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-php",
+-                            "openshift.io/display-name": "PHP (Latest)",
++                            "openshift.io/display-name": "CakePHP (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/cakephp-ex.git",
+-                            "supports": "php",
+-                            "tags": "builder,php"
++                            "tags": "quickstart,php,cakephp"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+-                            "name": "7.0"
++                            "name": "7.1"
+                         }
+                     }
+                 ]
+@@ -407,7 +550,7 @@
+             "metadata": {
+                 "name": "postgresql",
+                 "annotations": {
+-                    "openshift.io/display-name": "PostgreSQL"
++                    "openshift.io/display-name": "PostgreSQL (Ephemeral)"
+                 }
+             },
+             "spec": {
+@@ -415,26 +558,26 @@
+                     {
+                         "name": "9.2",
+                         "annotations": {
+-                            "description": "Provides a PostgreSQL 9.2 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.2.",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-postgresql",
+-                            "openshift.io/display-name": "PostgreSQL 9.2",
++                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.2",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "hidden,postgresql",
++                            "tags": "database,postgresql",
+                             "version": "9.2"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/postgresql-92-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/postgresql-92-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "9.4",
+                         "annotations": {
+-                            "description": "Provides a PostgreSQL 9.4 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.4.",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-postgresql",
+-                            "openshift.io/display-name": "PostgreSQL 9.4",
++                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.4",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "postgresql",
++                            "tags": "database,postgresql",
+                             "version": "9.4"
+                         },
+                         "from": {
+@@ -445,11 +588,11 @@
+                     {
+                         "name": "9.5",
+                         "annotations": {
+-                            "description": "Provides a PostgreSQL 9.5 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.5.",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-postgresql",
+-                            "openshift.io/display-name": "PostgreSQL 9.5",
++                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.5",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "postgresql",
++                            "tags": "database,postgresql",
+                             "version": "9.5"
+                         },
+                         "from": {
+@@ -460,11 +603,11 @@
+                     {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Provides a PostgreSQL database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.5.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL available on OpenShift, including major versions updates.",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-postgresql",
+-                            "openshift.io/display-name": "PostgreSQL (Latest)",
++                            "openshift.io/display-name": "PostgreSQL (Ephemeral) (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "postgresql"
++                            "tags": "database,postgresql"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+@@ -480,7 +623,7 @@
+             "metadata": {
+                 "name": "python",
+                 "annotations": {
+-                    "openshift.io/display-name": "Python"
++                    "openshift.io/display-name": "Django"
+                 }
+             },
+             "spec": {
+@@ -488,13 +631,11 @@
+                     {
+                         "name": "2.7",
+                         "annotations": {
+-                            "description": "Build and run Python 2.7 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/2.7/README.md.",
++                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+                             "iconClass": "icon-python",
+-                            "openshift.io/display-name": "Python 2.7",
++                            "openshift.io/display-name": "Django 2.7",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/django-ex.git",
+-                            "supports": "python:2.7,python",
+-                            "tags": "builder,python",
++                            "tags": "quickstart,python,django",
+                             "version": "2.7"
+                         },
+                         "from": {
+@@ -505,30 +646,26 @@
+                     {
+                         "name": "3.3",
+                         "annotations": {
+-                            "description": "Build and run Python 3.3 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.3/README.md.",
++                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+                             "iconClass": "icon-python",
+-                            "openshift.io/display-name": "Python 3.3",
++                            "openshift.io/display-name": "Django 3.3",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/django-ex.git",
+-                            "supports": "python:3.3,python",
+-                            "tags": "hidden,builder,python",
++                            "tags": "quickstart,python,django",
+                             "version": "3.3"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/python-33-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/python-33-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "3.4",
+                         "annotations": {
+-                            "description": "Build and run Python 3.4 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.4/README.md.",
++                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+                             "iconClass": "icon-python",
+-                            "openshift.io/display-name": "Python 3.4",
++                            "openshift.io/display-name": "Django 3.4",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/django-ex.git",
+-                            "supports": "python:3.4,python",
+-                            "tags": "builder,python",
++                            "tags": "quickstart,python,django",
+                             "version": "3.4"
+                         },
+                         "from": {
+@@ -539,13 +676,11 @@
+                     {
+                         "name": "3.5",
+                         "annotations": {
+-                            "description": "Build and run Python 3.5 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.5/README.md.",
++                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+                             "iconClass": "icon-python",
+-                            "openshift.io/display-name": "Python 3.5",
++                            "openshift.io/display-name": "Django 3.5",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/django-ex.git",
+-                            "supports": "python:3.5,python",
+-                            "tags": "builder,python",
++                            "tags": "quickstart,python,django",
+                             "version": "3.5"
+                         },
+                         "from": {
+@@ -554,19 +689,32 @@
+                         }
+                     },
+                     {
++                        "name": "3.6",
++                        "annotations": {
++                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
++                            "iconClass": "icon-python",
++                            "openshift.io/display-name": "Django 3.6",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,python,django",
++                            "version": "3.6"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/python-36-rhel7:latest"
++                        }
++                    },
++                    {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Build and run Python applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.5/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Python available on OpenShift, including major versions updates.",
++                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Django available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-python",
+-                            "openshift.io/display-name": "Python (Latest)",
++                            "openshift.io/display-name": "Django (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/django-ex.git",
+-                            "supports": "python",
+-                            "tags": "builder,python"
++                            "tags": "quickstart,python,django"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+-                            "name": "3.5"
++                            "name": "3.6"
+                         }
+                     }
+                 ]
+@@ -578,7 +726,7 @@
+             "metadata": {
+                 "name": "redis",
+                 "annotations": {
+-                    "openshift.io/display-name": "Redis"
++                    "openshift.io/display-name": "Redis (Ephemeral)"
+                 }
+             },
+             "spec": {
+@@ -586,11 +734,11 @@
+                     {
+                         "name": "3.2",
+                         "annotations": {
+-                            "description": "Provides a Redis 3.2 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/redis-container/tree/master/3.2/README.md.",
++                            "description": "Redis in-memory data structure store, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/redis-container/blob/master/3.2.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                             "iconClass": "icon-redis",
+-                            "openshift.io/display-name": "Redis 3.2",
++                            "openshift.io/display-name": "Redis (Ephemeral) 3.2",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "redis",
++                            "tags": "database,redis",
+                             "version": "3.2"
+                         },
+                         "from": {
+@@ -601,11 +749,11 @@
+                     {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Provides a Redis database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/redis-container/tree/master/3.2/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Redis available on OpenShift, including major versions updates.",
++                            "description": "Redis in-memory data structure store, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/redis-container/blob/master/3.2.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Redis (Ephemeral) available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-redis",
+-                            "openshift.io/display-name": "Redis (Latest)",
++                            "openshift.io/display-name": "Redis (Ephemeral) (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "tags": "redis"
++                            "tags": "database,redis"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+@@ -621,7 +769,7 @@
+             "metadata": {
+                 "name": "ruby",
+                 "annotations": {
+-                    "openshift.io/display-name": "Ruby"
++                    "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral)"
+                 }
+             },
+             "spec": {
+@@ -629,30 +777,26 @@
+                     {
+                         "name": "2.0",
+                         "annotations": {
+-                            "description": "Build and run Ruby 2.0 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/tree/master/2.0/README.md.",
++                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+                             "iconClass": "icon-ruby",
+-                            "openshift.io/display-name": "Ruby 2.0",
++                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.0",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/ruby-ex.git",
+-                            "supports": "ruby:2.0,ruby",
+-                            "tags": "hidden,builder,ruby",
++                            "tags": "quickstart,ruby,rails",
+                             "version": "2.0"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/ruby-20-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/ruby-20-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "2.2",
+                         "annotations": {
+-                            "description": "Build and run Ruby 2.2 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/tree/master/2.2/README.md.",
++                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+                             "iconClass": "icon-ruby",
+-                            "openshift.io/display-name": "Ruby 2.2",
++                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.2",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/ruby-ex.git",
+-                            "supports": "ruby:2.2,ruby",
+-                            "tags": "builder,ruby",
++                            "tags": "quickstart,ruby,rails",
+                             "version": "2.2"
+                         },
+                         "from": {
+@@ -663,13 +807,11 @@
+                     {
+                         "name": "2.3",
+                         "annotations": {
+-                            "description": "Build and run Ruby 2.3 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/blob/master/2.3/README.md.",
++                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+                             "iconClass": "icon-ruby",
+-                            "openshift.io/display-name": "Ruby 2.3",
++                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.3",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/ruby-ex.git",
+-                            "supports": "ruby:2.3,ruby",
+-                            "tags": "builder,ruby",
++                            "tags": "quickstart,ruby,rails",
+                             "version": "2.3"
+                         },
+                         "from": {
+@@ -680,13 +822,11 @@
+                     {
+                         "name": "2.4",
+                         "annotations": {
+-                            "description": "Build and run Ruby 2.4 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/blob/master/2.4/README.md.",
++                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+                             "iconClass": "icon-ruby",
+-                            "openshift.io/display-name": "Ruby 2.4",
++                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.4",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/ruby-ex.git",
+-                            "supports": "ruby:2.4,ruby",
+-                            "tags": "builder,ruby",
++                            "tags": "quickstart,ruby,rails",
+                             "version": "2.4"
+                         },
+                         "from": {
+@@ -697,13 +837,11 @@
+                     {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Build and run Ruby applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-ruby-container/tree/master/2.3/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Ruby available on OpenShift, including major versions updates.",
++                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Rails + PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-ruby",
+-                            "openshift.io/display-name": "Ruby (Latest)",
++                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/ruby-ex.git",
+-                            "supports": "ruby",
+-                            "tags": "builder,ruby"
++                            "tags": "quickstart,ruby,rails"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
