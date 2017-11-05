@@ -35,6 +35,16 @@ while [[ -n "$1" ]] ; do
       | sed_d 'dockerImageRepository": ""' \
       | tee "$F"
 
+    cat -n "$F" \
+      | grep -EA 1 '^\s*[0-9]+\s*},\s*$' \
+      | grep -v '^--$' \
+      | paste -d ' ' - - \
+      | grep -E '^\s*[0-9]+\s*},\s*[0-9]+\s*}\s*$' \
+      | tr -s '\t' ' ' \
+      | cut -d' ' -f2 \
+      | xargs -n1 -i echo -n "{}d;" \
+      | xargs -i sed -i "{}" "$F"
+
     oc delete project "newis-$C"
     break
   }
