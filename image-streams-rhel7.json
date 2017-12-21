@@ -460,6 +460,79 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
+                "name": "perl",
+                "annotations": {
+                    "openshift.io/display-name": "Perl Sample Application"
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "5.16",
+                        "annotations": {
+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+                            "iconClass": "icon-perl",
+                            "openshift.io/display-name": "Perl Sample Application 5.16",
+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                            "tags": "quickstart,perl",
+                            "version": "5.16"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.access.redhat.com/rhscl/perl-516-rhel7:latest"
+                        }
+                    },
+                    {
+                        "name": "5.20",
+                        "annotations": {
+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+                            "iconClass": "icon-perl",
+                            "openshift.io/display-name": "Perl Sample Application 5.20",
+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                            "tags": "quickstart,perl",
+                            "version": "5.20"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.access.redhat.com/rhscl/perl-520-rhel7:latest"
+                        }
+                    },
+                    {
+                        "name": "5.24",
+                        "annotations": {
+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+                            "iconClass": "icon-perl",
+                            "openshift.io/display-name": "Perl Sample Application 5.24",
+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                            "tags": "quickstart,perl",
+                            "version": "5.24"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.access.redhat.com/rhscl/perl-524-rhel7:latest"
+                        }
+                    },
+                    {
+                        "name": "latest",
+                        "annotations": {
+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Perl Sample Application available on OpenShift, including major versions updates.",
+                            "iconClass": "icon-perl",
+                            "openshift.io/display-name": "Perl Sample Application (latest)",
+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                            "tags": "quickstart,perl"
+                        },
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "name": "5.24"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
                 "name": "php",
                 "annotations": {
                     "openshift.io/display-name": "CakePHP"
