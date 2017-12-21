@@ -155,19 +155,26 @@ EOJS
 }
 ########################
 
-## Writes out "$name $file" pairs
-# from for all json files in
+## Writes all image-streams for $NAME
+# Looks for subdirs(=>$VERSIONs) in
 # $@ - work dirs
-get_names_and_files () {
-  for dir in "$@"; do
-    find "$dir" -type f -iname '*.json' \
-      | while read file; do
-          name="`get_name "$file"`"
-          # $NAME global
-          [[ -n "$name" ]] && echo "$name $file" || :
-        done \
-      | sort -u
-  done
+body () {
+  while read v; do
+    VERSION="$v"
+    CONTVER="`sed -e 's/\.//g' <<< "$v"`"
+    w_imagestream
+  done \
+    < <(
+      local args='-maxdepth 1 -mindepth 1 -type d -o -type l'
+
+      for dir in "$@"; do
+        find "$dir/${NAME}-container" ${args} || :
+        find "$dir/s2i-${NAME}-container" ${args} || :
+      done \
+        | xargs -n1 basename \
+        | grep -E '^[0-9]' \
+        | sort -V                 # version sort
+    )
 }
 
 ## Reads $NAME $file (from `get_names_and_files`)
@@ -197,26 +204,19 @@ main () {
     > ${FPREFIX}${OSNAME}${OSVER}.json
 }
 
-## Writes all image-streams for $NAME
-# Looks for subdirs(=>$VERSIONs) in
+## Writes out "$name $file" pairs
+# from for all json files in
 # $@ - work dirs
-body () {
-  while read v; do
-    VERSION="$v"
-    CONTVER="`sed -e 's/\.//g' <<< "$v"`"
-    w_imagestream
-  done \
-    < <(
-      local args='-maxdepth 1 -mindepth 1 -type d -o -type l'
-
-      for dir in "$@"; do
-        find "$dir/${NAME}-container" ${args} || :
-        find "$dir/s2i-${NAME}-container" ${args} || :
-      done \
-        | xargs -n1 basename \
-        | grep -E '^[0-9]' \
-        | sort -V                 # version sort
-    )
+get_names_and_files () {
+  for dir in "$@"; do
+    find "$dir" -type f -iname '*.json' \
+      | while read file; do
+          name="`get_name "$file"`"
+          # $NAME global
+          [[ -n "$name" ]] && echo "$name $file" || :
+        done \
+      | sort -u
+  done
 }
 
 ## exec
