@@ -207,7 +207,7 @@ body () {
     w_imagestream
   done \
     < <(
-      local args='-maxdepth 1 -mindepth 1 -type d'
+      local args='-maxdepth 1 -mindepth 1 -type d -o -type l'
 
       for dir in "$@"; do
         find "$dir/${NAME}-container" ${args} || :
