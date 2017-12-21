@@ -60,7 +60,7 @@
                     {
                         "name": "10.0",
                         "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-mariadb",
                             "openshift.io/display-name": "MariaDB (Ephemeral) 10.0",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -75,7 +75,7 @@
                     {
                         "name": "10.1",
                         "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-mariadb",
                             "openshift.io/display-name": "MariaDB (Ephemeral) 10.1",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -90,7 +90,7 @@
                     {
                         "name": "10.2",
                         "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-mariadb",
                             "openshift.io/display-name": "MariaDB (Ephemeral) 10.2",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -105,7 +105,7 @@
                     {
                         "name": "latest",
                         "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB (Ephemeral) available on OpenShift, including major versions updates.",
+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB (Ephemeral) available on OpenShift, including major versions updates.",
                             "iconClass": "icon-mariadb",
                             "openshift.io/display-name": "MariaDB (Ephemeral) (latest)",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -221,7 +221,7 @@
                     {
                         "name": "5.5",
                         "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-mysql-database",
                             "openshift.io/display-name": "MySQL (Ephemeral) 5.5",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -236,7 +236,7 @@
                     {
                         "name": "5.6",
                         "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-mysql-database",
                             "openshift.io/display-name": "MySQL (Ephemeral) 5.6",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -251,7 +251,7 @@
                     {
                         "name": "5.7",
                         "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-mysql-database",
                             "openshift.io/display-name": "MySQL (Ephemeral) 5.7",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -266,7 +266,7 @@
                     {
                         "name": "latest",
                         "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL (Ephemeral) available on OpenShift, including major versions updates.",
+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL (Ephemeral) available on OpenShift, including major versions updates.",
                             "iconClass": "icon-mysql-database",
                             "openshift.io/display-name": "MySQL (Ephemeral) (latest)",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -558,7 +558,7 @@
                     {
                         "name": "9.2",
                         "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-postgresql",
                             "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.2",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -573,7 +573,7 @@
                     {
                         "name": "9.4",
                         "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-postgresql",
                             "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.4",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -588,7 +588,7 @@
                     {
                         "name": "9.5",
                         "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                             "iconClass": "icon-postgresql",
                             "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.5",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -603,7 +603,7 @@
                     {
                         "name": "latest",
                         "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
                             "iconClass": "icon-postgresql",
                             "openshift.io/display-name": "PostgreSQL (Ephemeral) (latest)",
                             "openshift.io/provider-display-name": "Red Hat, Inc.",
