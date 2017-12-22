@@ -1,958 +1,958 @@
 {
-    "kind": "List",
-    "apiVersion": "v1",
-    "metadata": {},
-    "items": [
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "httpd",
-                "annotations": {
-                    "openshift.io/display-name": "Apache HTTP Server"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "2.4",
-                        "annotations": {
-                            "description": "An example Apache HTTP Server (httpd) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/httpd-ex/blob/master/README.md.",
-                            "iconClass": "icon-apache",
-                            "openshift.io/display-name": "Apache HTTP Server 2.4",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,httpd",
-                            "version": "2.4"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/httpd-24-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "An example Apache HTTP Server (httpd) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/httpd-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Apache HTTP Server available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-apache",
-                            "openshift.io/display-name": "Apache HTTP Server (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,httpd"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "2.4"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "mariadb",
-                "annotations": {
-                    "openshift.io/display-name": "MariaDB (Ephemeral)"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "10.0",
-                        "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mariadb",
-                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.0",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mariadb",
-                            "version": "10.0"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mariadb-100-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "10.1",
-                        "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mariadb",
-                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.1",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mariadb",
-                            "version": "10.1"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mariadb-101-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "10.2",
-                        "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mariadb",
-                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.2",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mariadb",
-                            "version": "10.2"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mariadb-102-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB (Ephemeral) available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-mariadb",
-                            "openshift.io/display-name": "MariaDB (Ephemeral) (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mariadb"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "10.2"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "mongodb",
-                "annotations": {
-                    "openshift.io/display-name": "MongoDB (Ephemeral)"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "2.4",
-                        "annotations": {
-                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mongodb",
-                            "openshift.io/display-name": "MongoDB (Ephemeral) 2.4",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mongodb",
-                            "version": "2.4"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mongodb-24-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "2.6",
-                        "annotations": {
-                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mongodb",
-                            "openshift.io/display-name": "MongoDB (Ephemeral) 2.6",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mongodb",
-                            "version": "2.6"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mongodb-26-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "3.0-upg",
-                        "annotations": {
-                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mongodb",
-                            "openshift.io/display-name": "MongoDB (Ephemeral) 3.0-upg",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mongodb",
-                            "version": "3.0-upg"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mongodb-30-upg-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "3.2",
-                        "annotations": {
-                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mongodb",
-                            "openshift.io/display-name": "MongoDB (Ephemeral) 3.2",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mongodb",
-                            "version": "3.2"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mongodb-32-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "3.4",
-                        "annotations": {
-                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mongodb",
-                            "openshift.io/display-name": "MongoDB (Ephemeral) 3.4",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mongodb",
-                            "version": "3.4"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mongodb-34-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MongoDB (Ephemeral) available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-mongodb",
-                            "openshift.io/display-name": "MongoDB (Ephemeral) (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mongodb"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "3.4"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "mysql",
-                "annotations": {
-                    "openshift.io/display-name": "MySQL (Ephemeral)"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "5.5",
-                        "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mysql-database",
-                            "openshift.io/display-name": "MySQL (Ephemeral) 5.5",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mysql",
-                            "version": "5.5"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mysql-55-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "5.6",
-                        "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mysql-database",
-                            "openshift.io/display-name": "MySQL (Ephemeral) 5.6",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mysql",
-                            "version": "5.6"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mysql-56-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "5.7",
-                        "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-mysql-database",
-                            "openshift.io/display-name": "MySQL (Ephemeral) 5.7",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mysql",
-                            "version": "5.7"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/mysql-57-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL (Ephemeral) available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-mysql-database",
-                            "openshift.io/display-name": "MySQL (Ephemeral) (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,mysql"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "5.7"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "nginx",
-                "annotations": {
-                    "openshift.io/display-name": "Nginx HTTP server and a reverse proxy"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "1.10",
-                        "annotations": {
-                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
-                            "iconClass": "icon-nginx",
-                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.10",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nginx",
-                            "version": "1.10"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nginx-110-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "1.12",
-                        "annotations": {
-                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
-                            "iconClass": "icon-nginx",
-                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.12",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nginx",
-                            "version": "1.12"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nginx-112-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "1.6",
-                        "annotations": {
-                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
-                            "iconClass": "icon-nginx",
-                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.6",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nginx",
-                            "version": "1.6"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nginx-16-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "1.8",
-                        "annotations": {
-                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
-                            "iconClass": "icon-nginx",
-                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.8",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nginx",
-                            "version": "1.8"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nginx-18-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Nginx HTTP server and a reverse proxy available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-nginx",
-                            "openshift.io/display-name": "Nginx HTTP server and a reverse proxy (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nginx"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "1.12"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "nodejs",
-                "annotations": {
-                    "openshift.io/display-name": "Node.js"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "0.10",
-                        "annotations": {
-                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
-                            "iconClass": "icon-nodejs",
-                            "openshift.io/display-name": "Node.js 0.10",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nodejs",
-                            "version": "0.10"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nodejs-010-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "4",
-                        "annotations": {
-                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
-                            "iconClass": "icon-nodejs",
-                            "openshift.io/display-name": "Node.js 4",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nodejs",
-                            "version": "4"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nodejs-4-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "6",
-                        "annotations": {
-                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
-                            "iconClass": "icon-nodejs",
-                            "openshift.io/display-name": "Node.js 6",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nodejs",
-                            "version": "6"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nodejs-6-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "8",
-                        "annotations": {
-                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
-                            "iconClass": "icon-nodejs",
-                            "openshift.io/display-name": "Node.js 8",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nodejs",
-                            "version": "8"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/nodejs-8-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Node.js available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-nodejs",
-                            "openshift.io/display-name": "Node.js (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,nodejs"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "8"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "perl",
-                "annotations": {
-                    "openshift.io/display-name": "Perl Sample Application"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "5.16",
-                        "annotations": {
-                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
-                            "iconClass": "icon-perl",
-                            "openshift.io/display-name": "Perl Sample Application 5.16",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,perl",
-                            "version": "5.16"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/perl-516-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "5.20",
-                        "annotations": {
-                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
-                            "iconClass": "icon-perl",
-                            "openshift.io/display-name": "Perl Sample Application 5.20",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,perl",
-                            "version": "5.20"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/perl-520-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "5.24",
-                        "annotations": {
-                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
-                            "iconClass": "icon-perl",
-                            "openshift.io/display-name": "Perl Sample Application 5.24",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,perl",
-                            "version": "5.24"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/perl-524-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Perl Sample Application available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-perl",
-                            "openshift.io/display-name": "Perl Sample Application (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,perl"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "5.24"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "php",
-                "annotations": {
-                    "openshift.io/display-name": "CakePHP"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "5.5",
-                        "annotations": {
-                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
-                            "iconClass": "icon-php",
-                            "openshift.io/display-name": "CakePHP 5.5",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,php,cakephp",
-                            "version": "5.5"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/php-55-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "5.6",
-                        "annotations": {
-                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
-                            "iconClass": "icon-php",
-                            "openshift.io/display-name": "CakePHP 5.6",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,php,cakephp",
-                            "version": "5.6"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/php-56-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "7.0",
-                        "annotations": {
-                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
-                            "iconClass": "icon-php",
-                            "openshift.io/display-name": "CakePHP 7.0",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,php,cakephp",
-                            "version": "7.0"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/php-70-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "7.1",
-                        "annotations": {
-                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
-                            "iconClass": "icon-php",
-                            "openshift.io/display-name": "CakePHP 7.1",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,php,cakephp",
-                            "version": "7.1"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/php-71-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of CakePHP available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-php",
-                            "openshift.io/display-name": "CakePHP (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,php,cakephp"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "7.1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "postgresql",
-                "annotations": {
-                    "openshift.io/display-name": "PostgreSQL (Ephemeral)"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "9.2",
-                        "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-postgresql",
-                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.2",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,postgresql",
-                            "version": "9.2"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/postgresql-92-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "9.4",
-                        "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-postgresql",
-                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.4",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,postgresql",
-                            "version": "9.4"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/postgresql-94-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "9.5",
-                        "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-postgresql",
-                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.5",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,postgresql",
-                            "version": "9.5"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/postgresql-95-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "9.6",
-                        "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-postgresql",
-                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.6",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,postgresql",
-                            "version": "9.6"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/postgresql-96-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-postgresql",
-                            "openshift.io/display-name": "PostgreSQL (Ephemeral) (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,postgresql"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "9.6"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "python",
-                "annotations": {
-                    "openshift.io/display-name": "Django"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "2.7",
-                        "annotations": {
-                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
-                            "iconClass": "icon-python",
-                            "openshift.io/display-name": "Django 2.7",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,python,django",
-                            "version": "2.7"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/python-27-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "3.3",
-                        "annotations": {
-                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
-                            "iconClass": "icon-python",
-                            "openshift.io/display-name": "Django 3.3",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,python,django",
-                            "version": "3.3"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/python-33-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "3.4",
-                        "annotations": {
-                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
-                            "iconClass": "icon-python",
-                            "openshift.io/display-name": "Django 3.4",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,python,django",
-                            "version": "3.4"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/python-34-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "3.5",
-                        "annotations": {
-                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
-                            "iconClass": "icon-python",
-                            "openshift.io/display-name": "Django 3.5",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,python,django",
-                            "version": "3.5"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/python-35-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "3.6",
-                        "annotations": {
-                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
-                            "iconClass": "icon-python",
-                            "openshift.io/display-name": "Django 3.6",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,python,django",
-                            "version": "3.6"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/python-36-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Django available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-python",
-                            "openshift.io/display-name": "Django (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,python,django"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "3.6"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "redis",
-                "annotations": {
-                    "openshift.io/display-name": "Redis (Ephemeral)"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "3.2",
-                        "annotations": {
-                            "description": "Redis in-memory data structure store, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/redis-container/blob/master/3.2.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
-                            "iconClass": "icon-redis",
-                            "openshift.io/display-name": "Redis (Ephemeral) 3.2",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,redis",
-                            "version": "3.2"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/redis-32-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "Redis in-memory data structure store, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/redis-container/blob/master/3.2.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Redis (Ephemeral) available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-redis",
-                            "openshift.io/display-name": "Redis (Ephemeral) (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "database,redis"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "3.2"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "ruby",
-                "annotations": {
-                    "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral)"
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "2.0",
-                        "annotations": {
-                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
-                            "iconClass": "icon-ruby",
-                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.0",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,ruby,rails",
-                            "version": "2.0"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/ruby-20-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "2.2",
-                        "annotations": {
-                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
-                            "iconClass": "icon-ruby",
-                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.2",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,ruby,rails",
-                            "version": "2.2"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/ruby-22-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "2.3",
-                        "annotations": {
-                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
-                            "iconClass": "icon-ruby",
-                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.3",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,ruby,rails",
-                            "version": "2.3"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/ruby-23-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "2.4",
-                        "annotations": {
-                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
-                            "iconClass": "icon-ruby",
-                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.4",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,ruby,rails",
-                            "version": "2.4"
-                        },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "centos/ruby-24-centos7:latest"
-                        }
-                    },
-                    {
-                        "name": "latest",
-                        "annotations": {
-                            "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Rails + PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
-                            "iconClass": "icon-ruby",
-                            "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) (latest)",
-                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-                            "tags": "quickstart,ruby,rails"
-                        },
-                        "from": {
-                            "kind": "ImageStreamTag",
-                            "name": "2.4"
-                        }
-                    }
-                ]
-            }
+  "kind": "ImageStreamList",
+  "apiVersion": "v1",
+  "metadata": {},
+  "items": [
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "httpd",
+        "annotations": {
+          "openshift.io/display-name": "Apache HTTP Server"
         }
-    ]
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "2.4",
+            "annotations": {
+              "openshift.io/display-name": "Apache HTTP Server 2.4",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Apache HTTP Server (httpd) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/httpd-ex/blob/master/README.md.",
+              "iconClass": "icon-apache",
+              "tags": "quickstart,httpd",
+              "version": "2.4"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/httpd-24-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Apache HTTP Server (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Apache HTTP Server (httpd) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/httpd-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Apache HTTP Server available on OpenShift, including major versions updates.",
+              "iconClass": "icon-apache",
+              "tags": "quickstart,httpd"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "2.4"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "mariadb",
+        "annotations": {
+          "openshift.io/display-name": "MariaDB (Ephemeral)"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "10.0",
+            "annotations": {
+              "openshift.io/display-name": "MariaDB (Ephemeral) 10.0",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mariadb",
+              "tags": "database,mariadb",
+              "version": "10.0"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mariadb-100-centos7:latest"
+            }
+          },
+          {
+            "name": "10.1",
+            "annotations": {
+              "openshift.io/display-name": "MariaDB (Ephemeral) 10.1",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mariadb",
+              "tags": "database,mariadb",
+              "version": "10.1"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mariadb-101-centos7:latest"
+            }
+          },
+          {
+            "name": "10.2",
+            "annotations": {
+              "openshift.io/display-name": "MariaDB (Ephemeral) 10.2",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mariadb",
+              "tags": "database,mariadb",
+              "version": "10.2"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mariadb-102-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "MariaDB (Ephemeral) (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB (Ephemeral) available on OpenShift, including major versions updates.",
+              "iconClass": "icon-mariadb",
+              "tags": "database,mariadb"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "10.2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "mongodb",
+        "annotations": {
+          "openshift.io/display-name": "MongoDB (Ephemeral)"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "2.4",
+            "annotations": {
+              "openshift.io/display-name": "MongoDB (Ephemeral) 2.4",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mongodb",
+              "tags": "database,mongodb",
+              "version": "2.4"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mongodb-24-centos7:latest"
+            }
+          },
+          {
+            "name": "2.6",
+            "annotations": {
+              "openshift.io/display-name": "MongoDB (Ephemeral) 2.6",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mongodb",
+              "tags": "database,mongodb",
+              "version": "2.6"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mongodb-26-centos7:latest"
+            }
+          },
+          {
+            "name": "3.0-upg",
+            "annotations": {
+              "openshift.io/display-name": "MongoDB (Ephemeral) 3.0-upg",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mongodb",
+              "tags": "database,mongodb",
+              "version": "3.0-upg"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mongodb-30-upg-centos7:latest"
+            }
+          },
+          {
+            "name": "3.2",
+            "annotations": {
+              "openshift.io/display-name": "MongoDB (Ephemeral) 3.2",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mongodb",
+              "tags": "database,mongodb",
+              "version": "3.2"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mongodb-32-centos7:latest"
+            }
+          },
+          {
+            "name": "3.4",
+            "annotations": {
+              "openshift.io/display-name": "MongoDB (Ephemeral) 3.4",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mongodb",
+              "tags": "database,mongodb",
+              "version": "3.4"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mongodb-34-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "MongoDB (Ephemeral) (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MongoDB (Ephemeral) available on OpenShift, including major versions updates.",
+              "iconClass": "icon-mongodb",
+              "tags": "database,mongodb"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "3.4"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "mysql",
+        "annotations": {
+          "openshift.io/display-name": "MySQL (Ephemeral)"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "5.5",
+            "annotations": {
+              "openshift.io/display-name": "MySQL (Ephemeral) 5.5",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mysql-database",
+              "tags": "database,mysql",
+              "version": "5.5"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mysql-55-centos7:latest"
+            }
+          },
+          {
+            "name": "5.6",
+            "annotations": {
+              "openshift.io/display-name": "MySQL (Ephemeral) 5.6",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mysql-database",
+              "tags": "database,mysql",
+              "version": "5.6"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mysql-56-centos7:latest"
+            }
+          },
+          {
+            "name": "5.7",
+            "annotations": {
+              "openshift.io/display-name": "MySQL (Ephemeral) 5.7",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-mysql-database",
+              "tags": "database,mysql",
+              "version": "5.7"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/mysql-57-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "MySQL (Ephemeral) (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL (Ephemeral) available on OpenShift, including major versions updates.",
+              "iconClass": "icon-mysql-database",
+              "tags": "database,mysql"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "5.7"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "nginx",
+        "annotations": {
+          "openshift.io/display-name": "Nginx HTTP server and a reverse proxy"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "1.6",
+            "annotations": {
+              "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.6",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
+              "iconClass": "icon-nginx",
+              "tags": "quickstart,nginx",
+              "version": "1.6"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nginx-16-centos7:latest"
+            }
+          },
+          {
+            "name": "1.8",
+            "annotations": {
+              "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.8",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
+              "iconClass": "icon-nginx",
+              "tags": "quickstart,nginx",
+              "version": "1.8"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nginx-18-centos7:latest"
+            }
+          },
+          {
+            "name": "1.10",
+            "annotations": {
+              "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.10",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
+              "iconClass": "icon-nginx",
+              "tags": "quickstart,nginx",
+              "version": "1.10"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nginx-110-centos7:latest"
+            }
+          },
+          {
+            "name": "1.12",
+            "annotations": {
+              "openshift.io/display-name": "Nginx HTTP server and a reverse proxy 1.12",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.",
+              "iconClass": "icon-nginx",
+              "tags": "quickstart,nginx",
+              "version": "1.12"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nginx-112-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Nginx HTTP server and a reverse proxy (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Nginx HTTP server and a reverse proxy (nginx) application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nginx-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Nginx HTTP server and a reverse proxy available on OpenShift, including major versions updates.",
+              "iconClass": "icon-nginx",
+              "tags": "quickstart,nginx"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "1.12"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "nodejs",
+        "annotations": {
+          "openshift.io/display-name": "Node.js"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "0.10",
+            "annotations": {
+              "openshift.io/display-name": "Node.js 0.10",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
+              "iconClass": "icon-nodejs",
+              "tags": "quickstart,nodejs",
+              "version": "0.10"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nodejs-010-centos7:latest"
+            }
+          },
+          {
+            "name": "4",
+            "annotations": {
+              "openshift.io/display-name": "Node.js 4",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
+              "iconClass": "icon-nodejs",
+              "tags": "quickstart,nodejs",
+              "version": "4"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nodejs-4-centos7:latest"
+            }
+          },
+          {
+            "name": "6",
+            "annotations": {
+              "openshift.io/display-name": "Node.js 6",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
+              "iconClass": "icon-nodejs",
+              "tags": "quickstart,nodejs",
+              "version": "6"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nodejs-6-centos7:latest"
+            }
+          },
+          {
+            "name": "8",
+            "annotations": {
+              "openshift.io/display-name": "Node.js 8",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
+              "iconClass": "icon-nodejs",
+              "tags": "quickstart,nodejs",
+              "version": "8"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/nodejs-8-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Node.js (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Node.js available on OpenShift, including major versions updates.",
+              "iconClass": "icon-nodejs",
+              "tags": "quickstart,nodejs"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "perl",
+        "annotations": {
+          "openshift.io/display-name": "Perl Sample Application"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "5.16",
+            "annotations": {
+              "openshift.io/display-name": "Perl Sample Application 5.16",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+              "iconClass": "icon-perl",
+              "tags": "quickstart,perl",
+              "version": "5.16"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/perl-516-centos7:latest"
+            }
+          },
+          {
+            "name": "5.20",
+            "annotations": {
+              "openshift.io/display-name": "Perl Sample Application 5.20",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+              "iconClass": "icon-perl",
+              "tags": "quickstart,perl",
+              "version": "5.20"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/perl-520-centos7:latest"
+            }
+          },
+          {
+            "name": "5.24",
+            "annotations": {
+              "openshift.io/display-name": "Perl Sample Application 5.24",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+              "iconClass": "icon-perl",
+              "tags": "quickstart,perl",
+              "version": "5.24"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/perl-524-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Perl Sample Application (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Perl Sample Application available on OpenShift, including major versions updates.",
+              "iconClass": "icon-perl",
+              "tags": "quickstart,perl"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "5.24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "php",
+        "annotations": {
+          "openshift.io/display-name": "CakePHP"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "5.5",
+            "annotations": {
+              "openshift.io/display-name": "CakePHP 5.5",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+              "iconClass": "icon-php",
+              "tags": "quickstart,php,cakephp",
+              "version": "5.5"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/php-55-centos7:latest"
+            }
+          },
+          {
+            "name": "5.6",
+            "annotations": {
+              "openshift.io/display-name": "CakePHP 5.6",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+              "iconClass": "icon-php",
+              "tags": "quickstart,php,cakephp",
+              "version": "5.6"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/php-56-centos7:latest"
+            }
+          },
+          {
+            "name": "7.0",
+            "annotations": {
+              "openshift.io/display-name": "CakePHP 7.0",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+              "iconClass": "icon-php",
+              "tags": "quickstart,php,cakephp",
+              "version": "7.0"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/php-70-centos7:latest"
+            }
+          },
+          {
+            "name": "7.1",
+            "annotations": {
+              "openshift.io/display-name": "CakePHP 7.1",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+              "iconClass": "icon-php",
+              "tags": "quickstart,php,cakephp",
+              "version": "7.1"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/php-71-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "CakePHP (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example CakePHP application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of CakePHP available on OpenShift, including major versions updates.",
+              "iconClass": "icon-php",
+              "tags": "quickstart,php,cakephp"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "7.1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "postgresql",
+        "annotations": {
+          "openshift.io/display-name": "PostgreSQL (Ephemeral)"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "9.2",
+            "annotations": {
+              "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.2",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-postgresql",
+              "tags": "database,postgresql",
+              "version": "9.2"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/postgresql-92-centos7:latest"
+            }
+          },
+          {
+            "name": "9.4",
+            "annotations": {
+              "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.4",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-postgresql",
+              "tags": "database,postgresql",
+              "version": "9.4"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/postgresql-94-centos7:latest"
+            }
+          },
+          {
+            "name": "9.5",
+            "annotations": {
+              "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.5",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-postgresql",
+              "tags": "database,postgresql",
+              "version": "9.5"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/postgresql-95-centos7:latest"
+            }
+          },
+          {
+            "name": "9.6",
+            "annotations": {
+              "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.6",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-postgresql",
+              "tags": "database,postgresql",
+              "version": "9.6"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/postgresql-96-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "PostgreSQL (Ephemeral) (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
+              "iconClass": "icon-postgresql",
+              "tags": "database,postgresql"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "9.6"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "python",
+        "annotations": {
+          "openshift.io/display-name": "Django"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "2.7",
+            "annotations": {
+              "openshift.io/display-name": "Django 2.7",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+              "iconClass": "icon-python",
+              "tags": "quickstart,python,django",
+              "version": "2.7"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/python-27-centos7:latest"
+            }
+          },
+          {
+            "name": "3.3",
+            "annotations": {
+              "openshift.io/display-name": "Django 3.3",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+              "iconClass": "icon-python",
+              "tags": "quickstart,python,django",
+              "version": "3.3"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/python-33-centos7:latest"
+            }
+          },
+          {
+            "name": "3.4",
+            "annotations": {
+              "openshift.io/display-name": "Django 3.4",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+              "iconClass": "icon-python",
+              "tags": "quickstart,python,django",
+              "version": "3.4"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/python-34-centos7:latest"
+            }
+          },
+          {
+            "name": "3.5",
+            "annotations": {
+              "openshift.io/display-name": "Django 3.5",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+              "iconClass": "icon-python",
+              "tags": "quickstart,python,django",
+              "version": "3.5"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/python-35-centos7:latest"
+            }
+          },
+          {
+            "name": "3.6",
+            "annotations": {
+              "openshift.io/display-name": "Django 3.6",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
+              "iconClass": "icon-python",
+              "tags": "quickstart,python,django",
+              "version": "3.6"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/python-36-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Django (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Django available on OpenShift, including major versions updates.",
+              "iconClass": "icon-python",
+              "tags": "quickstart,python,django"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "3.6"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "redis",
+        "annotations": {
+          "openshift.io/display-name": "Redis (Ephemeral)"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "3.2",
+            "annotations": {
+              "openshift.io/display-name": "Redis (Ephemeral) 3.2",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "Redis in-memory data structure store, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/redis-container/blob/master/3.2.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
+              "iconClass": "icon-redis",
+              "tags": "database,redis",
+              "version": "3.2"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/redis-32-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Redis (Ephemeral) (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "Redis in-memory data structure store, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/redis-container/blob/master/3.2.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Redis (Ephemeral) available on OpenShift, including major versions updates.",
+              "iconClass": "icon-redis",
+              "tags": "database,redis"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "3.2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "ruby",
+        "annotations": {
+          "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral)"
+        }
+      },
+      "spec": {
+        "tags": [
+          {
+            "name": "2.0",
+            "annotations": {
+              "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.0",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+              "iconClass": "icon-ruby",
+              "tags": "quickstart,ruby,rails",
+              "version": "2.0"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/ruby-20-centos7:latest"
+            }
+          },
+          {
+            "name": "2.2",
+            "annotations": {
+              "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.2",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+              "iconClass": "icon-ruby",
+              "tags": "quickstart,ruby,rails",
+              "version": "2.2"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/ruby-22-centos7:latest"
+            }
+          },
+          {
+            "name": "2.3",
+            "annotations": {
+              "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.3",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+              "iconClass": "icon-ruby",
+              "tags": "quickstart,ruby,rails",
+              "version": "2.3"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/ruby-23-centos7:latest"
+            }
+          },
+          {
+            "name": "2.4",
+            "annotations": {
+              "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) 2.4",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.",
+              "iconClass": "icon-ruby",
+              "tags": "quickstart,ruby,rails",
+              "version": "2.4"
+            },
+            "from": {
+              "kind": "DockerImage",
+              "name": "centos/ruby-24-centos7:latest"
+            }
+          },
+          {
+            "name": "latest",
+            "annotations": {
+              "openshift.io/display-name": "Rails + PostgreSQL (Ephemeral) (latest)",
+              "openshift.io/provider-display-name": "Red Hat, Inc.",
+              "description": "An example Rails application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/rails-ex/blob/master/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Rails + PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
+              "iconClass": "icon-ruby",
+              "tags": "quickstart,ruby,rails"
+            },
+            "from": {
+              "kind": "ImageStreamTag",
+              "name": "2.4"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
