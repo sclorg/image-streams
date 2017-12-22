@@ -1,5 +1,5 @@
 diff --git a/image-streams-rhel7.json b/image-streams-rhel7.json
-index 9d8f776..aefae7a 100644
+index 834abf5..aefae7a 100644
 --- a/image-streams-rhel7.json
 +++ b/image-streams-rhel7.json
 @@ -9,7 +9,7 @@
@@ -456,7 +456,7 @@ index 9d8f776..aefae7a 100644
                              "version": "6"
                          },
                          "from": {
-@@ -302,19 +440,105 @@
+@@ -302,19 +440,32 @@
                          }
                      },
                      {
@@ -482,93 +482,101 @@ index 9d8f776..aefae7a 100644
                              "iconClass": "icon-nodejs",
 -                            "openshift.io/display-name": "Node.js (Latest)",
 +                            "openshift.io/display-name": "Node.js (latest)",
-+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-+                            "tags": "quickstart,nodejs"
-+                        },
-+                        "from": {
-+                            "kind": "ImageStreamTag",
-+                            "name": "8"
-+                        }
-+                    }
-+                ]
-+            }
-+        },
-+        {
-+            "kind": "ImageStream",
-+            "apiVersion": "v1",
-+            "metadata": {
-+                "name": "perl",
-+                "annotations": {
-+                    "openshift.io/display-name": "Perl Sample Application"
-+                }
-+            },
-+            "spec": {
-+                "tags": [
-+                    {
-+                        "name": "5.16",
-+                        "annotations": {
-+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
-+                            "iconClass": "icon-perl",
-+                            "openshift.io/display-name": "Perl Sample Application 5.16",
-+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-+                            "tags": "quickstart,perl",
-+                            "version": "5.16"
-+                        },
-+                        "from": {
-+                            "kind": "DockerImage",
-+                            "name": "registry.access.redhat.com/rhscl/perl-516-rhel7:latest"
-+                        }
-+                    },
-+                    {
-+                        "name": "5.20",
-+                        "annotations": {
-+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
-+                            "iconClass": "icon-perl",
-+                            "openshift.io/display-name": "Perl Sample Application 5.20",
-+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-+                            "tags": "quickstart,perl",
-+                            "version": "5.20"
-+                        },
-+                        "from": {
-+                            "kind": "DockerImage",
-+                            "name": "registry.access.redhat.com/rhscl/perl-520-rhel7:latest"
-+                        }
-+                    },
-+                    {
-+                        "name": "5.24",
-+                        "annotations": {
-+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
-+                            "iconClass": "icon-perl",
-+                            "openshift.io/display-name": "Perl Sample Application 5.24",
-+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
-+                            "tags": "quickstart,perl",
-+                            "version": "5.24"
-+                        },
-+                        "from": {
-+                            "kind": "DockerImage",
-+                            "name": "registry.access.redhat.com/rhscl/perl-524-rhel7:latest"
-+                        }
-+                    },
-+                    {
-+                        "name": "latest",
-+                        "annotations": {
-+                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Perl Sample Application available on OpenShift, including major versions updates.",
-+                            "iconClass": "icon-perl",
-+                            "openshift.io/display-name": "Perl Sample Application (latest)",
                              "openshift.io/provider-display-name": "Red Hat, Inc.",
 -                            "sampleRepo": "https://github.com/openshift/nodejs-ex.git",
 -                            "supports": "nodejs",
 -                            "tags": "builder,nodejs"
-+                            "tags": "quickstart,perl"
++                            "tags": "quickstart,nodejs"
                          },
                          "from": {
                              "kind": "ImageStreamTag",
 -                            "name": "6"
-+                            "name": "5.24"
++                            "name": "8"
                          }
                      }
                  ]
-@@ -326,7 +550,7 @@
+@@ -326,7 +477,7 @@
+             "metadata": {
+                 "name": "perl",
+                 "annotations": {
+-                    "openshift.io/display-name": "Perl"
++                    "openshift.io/display-name": "Perl Sample Application"
+                 }
+             },
+             "spec": {
+@@ -334,30 +485,26 @@
+                     {
+                         "name": "5.16",
+                         "annotations": {
+-                            "description": "Build and run Perl 5.16 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.16/README.md.",
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+                             "iconClass": "icon-perl",
+-                            "openshift.io/display-name": "Perl 5.16",
++                            "openshift.io/display-name": "Perl Sample Application 5.16",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/dancer-ex.git",
+-                            "supports": "perl:5.16,perl",
+-                            "tags": "hidden,builder,perl",
++                            "tags": "quickstart,perl",
+                             "version": "5.16"
+                         },
+                         "from": {
+                             "kind": "DockerImage",
+-                            "name": "registry.access.redhat.com/openshift3/perl-516-rhel7:latest"
++                            "name": "registry.access.redhat.com/rhscl/perl-516-rhel7:latest"
+                         }
+                     },
+                     {
+                         "name": "5.20",
+                         "annotations": {
+-                            "description": "Build and run Perl 5.20 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.20/README.md.",
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+                             "iconClass": "icon-perl",
+-                            "openshift.io/display-name": "Perl 5.20",
++                            "openshift.io/display-name": "Perl Sample Application 5.20",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/dancer-ex.git",
+-                            "supports": "perl:5.20,perl",
+-                            "tags": "builder,perl",
++                            "tags": "quickstart,perl",
+                             "version": "5.20"
+                         },
+                         "from": {
+@@ -368,13 +515,11 @@
+                     {
+                         "name": "5.24",
+                         "annotations": {
+-                            "description": "Build and run Perl 5.24 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.24/README.md.",
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
+                             "iconClass": "icon-perl",
+-                            "openshift.io/display-name": "Perl 5.24",
++                            "openshift.io/display-name": "Perl Sample Application 5.24",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/dancer-ex.git",
+-                            "supports": "perl:5.24,perl",
+-                            "tags": "builder,perl",
++                            "tags": "quickstart,perl",
+                             "version": "5.24"
+                         },
+                         "from": {
+@@ -385,13 +530,11 @@
+                     {
+                         "name": "latest",
+                         "annotations": {
+-                            "description": "Build and run Perl applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/5.20/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Perl available on OpenShift, including major versions updates.",
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Perl Sample Application available on OpenShift, including major versions updates.",
+                             "iconClass": "icon-perl",
+-                            "openshift.io/display-name": "Perl (Latest)",
++                            "openshift.io/display-name": "Perl Sample Application (latest)",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/dancer-ex.git",
+-                            "supports": "perl",
+-                            "tags": "builder,perl"
++                            "tags": "quickstart,perl"
+                         },
+                         "from": {
+                             "kind": "ImageStreamTag",
+@@ -407,7 +550,7 @@
              "metadata": {
                  "name": "php",
                  "annotations": {
@@ -577,7 +585,7 @@ index 9d8f776..aefae7a 100644
                  }
              },
              "spec": {
-@@ -334,30 +558,26 @@
+@@ -415,30 +558,26 @@
                      {
                          "name": "5.5",
                          "annotations": {
@@ -615,7 +623,7 @@ index 9d8f776..aefae7a 100644
                              "version": "5.6"
                          },
                          "from": {
-@@ -368,13 +588,11 @@
+@@ -449,13 +588,11 @@
                      {
                          "name": "7.0",
                          "annotations": {
@@ -632,7 +640,7 @@ index 9d8f776..aefae7a 100644
                              "version": "7.0"
                          },
                          "from": {
-@@ -383,19 +601,32 @@
+@@ -464,19 +601,32 @@
                          }
                      },
                      {
@@ -671,7 +679,7 @@ index 9d8f776..aefae7a 100644
                          }
                      }
                  ]
-@@ -407,7 +638,7 @@
+@@ -488,7 +638,7 @@
              "metadata": {
                  "name": "postgresql",
                  "annotations": {
@@ -680,7 +688,7 @@ index 9d8f776..aefae7a 100644
                  }
              },
              "spec": {
-@@ -415,26 +646,26 @@
+@@ -496,26 +646,26 @@
                      {
                          "name": "9.2",
                          "annotations": {
@@ -714,7 +722,7 @@ index 9d8f776..aefae7a 100644
                              "version": "9.4"
                          },
                          "from": {
-@@ -445,11 +676,11 @@
+@@ -526,11 +676,11 @@
                      {
                          "name": "9.5",
                          "annotations": {
@@ -729,7 +737,7 @@ index 9d8f776..aefae7a 100644
                              "version": "9.5"
                          },
                          "from": {
-@@ -458,17 +689,32 @@
+@@ -539,17 +689,32 @@
                          }
                      },
                      {
@@ -766,7 +774,7 @@ index 9d8f776..aefae7a 100644
                          }
                      }
                  ]
-@@ -480,7 +726,7 @@
+@@ -561,7 +726,7 @@
              "metadata": {
                  "name": "python",
                  "annotations": {
@@ -775,7 +783,7 @@ index 9d8f776..aefae7a 100644
                  }
              },
              "spec": {
-@@ -488,13 +734,11 @@
+@@ -569,13 +734,11 @@
                      {
                          "name": "2.7",
                          "annotations": {
@@ -792,7 +800,7 @@ index 9d8f776..aefae7a 100644
                              "version": "2.7"
                          },
                          "from": {
-@@ -505,30 +749,26 @@
+@@ -586,30 +749,26 @@
                      {
                          "name": "3.3",
                          "annotations": {
@@ -830,7 +838,7 @@ index 9d8f776..aefae7a 100644
                              "version": "3.4"
                          },
                          "from": {
-@@ -539,13 +779,11 @@
+@@ -620,13 +779,11 @@
                      {
                          "name": "3.5",
                          "annotations": {
@@ -847,28 +855,28 @@ index 9d8f776..aefae7a 100644
                              "version": "3.5"
                          },
                          "from": {
-@@ -554,19 +792,32 @@
-                         }
-                     },
+@@ -637,13 +794,11 @@
                      {
-+                        "name": "3.6",
-+                        "annotations": {
+                         "name": "3.6",
+                         "annotations": {
+-                            "description": "Build and run Python 3.6 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.6/README.md.",
 +                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
-+                            "iconClass": "icon-python",
+                             "iconClass": "icon-python",
+-                            "openshift.io/display-name": "Python 3.6",
 +                            "openshift.io/display-name": "Django 3.6",
-+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                             "openshift.io/provider-display-name": "Red Hat, Inc.",
+-                            "sampleRepo": "https://github.com/openshift/django-ex.git",
+-                            "supports": "python:3.6,python",
+-                            "tags": "builder,python",
 +                            "tags": "quickstart,python,django",
-+                            "version": "3.6"
-+                        },
-+                        "from": {
-+                            "kind": "DockerImage",
-+                            "name": "registry.access.redhat.com/rhscl/python-36-rhel7:latest"
-+                        }
-+                    },
-+                    {
+                             "version": "3.6"
+                         },
+                         "from": {
+@@ -654,13 +809,11 @@
+                     {
                          "name": "latest",
                          "annotations": {
--                            "description": "Build and run Python applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.5/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Python available on OpenShift, including major versions updates.",
+-                            "description": "Build and run Python applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.6/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Python available on OpenShift, including major versions updates.",
 +                            "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Django available on OpenShift, including major versions updates.",
                              "iconClass": "icon-python",
 -                            "openshift.io/display-name": "Python (Latest)",
@@ -881,12 +889,7 @@ index 9d8f776..aefae7a 100644
                          },
                          "from": {
                              "kind": "ImageStreamTag",
--                            "name": "3.5"
-+                            "name": "3.6"
-                         }
-                     }
-                 ]
-@@ -578,7 +829,7 @@
+@@ -676,7 +829,7 @@
              "metadata": {
                  "name": "redis",
                  "annotations": {
@@ -895,7 +898,7 @@ index 9d8f776..aefae7a 100644
                  }
              },
              "spec": {
-@@ -586,11 +837,11 @@
+@@ -684,11 +837,11 @@
                      {
                          "name": "3.2",
                          "annotations": {
@@ -910,7 +913,7 @@ index 9d8f776..aefae7a 100644
                              "version": "3.2"
                          },
                          "from": {
-@@ -601,11 +852,11 @@
+@@ -699,11 +852,11 @@
                      {
                          "name": "latest",
                          "annotations": {
@@ -925,7 +928,7 @@ index 9d8f776..aefae7a 100644
                          },
                          "from": {
                              "kind": "ImageStreamTag",
-@@ -621,7 +872,7 @@
+@@ -719,7 +872,7 @@
              "metadata": {
                  "name": "ruby",
                  "annotations": {
@@ -934,7 +937,7 @@ index 9d8f776..aefae7a 100644
                  }
              },
              "spec": {
-@@ -629,30 +880,26 @@
+@@ -727,30 +880,26 @@
                      {
                          "name": "2.0",
                          "annotations": {
@@ -972,7 +975,7 @@ index 9d8f776..aefae7a 100644
                              "version": "2.2"
                          },
                          "from": {
-@@ -663,13 +910,11 @@
+@@ -761,13 +910,11 @@
                      {
                          "name": "2.3",
                          "annotations": {
@@ -989,7 +992,7 @@ index 9d8f776..aefae7a 100644
                              "version": "2.3"
                          },
                          "from": {
-@@ -680,13 +925,11 @@
+@@ -778,13 +925,11 @@
                      {
                          "name": "2.4",
                          "annotations": {
@@ -1006,7 +1009,7 @@ index 9d8f776..aefae7a 100644
                              "version": "2.4"
                          },
                          "from": {
-@@ -697,13 +940,11 @@
+@@ -795,13 +940,11 @@
                      {
                          "name": "latest",
                          "annotations": {
