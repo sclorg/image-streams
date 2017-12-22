@@ -1,5 +1,5 @@
 diff --git a/image-streams-rhel7.json b/image-streams-rhel7.json
-index 9d8f776..28a471d 100644
+index 9d8f776..aefae7a 100644
 --- a/image-streams-rhel7.json
 +++ b/image-streams-rhel7.json
 @@ -9,7 +9,7 @@
@@ -61,7 +61,7 @@ index 9d8f776..28a471d 100644
                      {
 +                        "name": "10.0",
 +                        "annotations": {
-+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
 +                            "iconClass": "icon-mariadb",
 +                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.0",
 +                            "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -77,7 +77,7 @@ index 9d8f776..28a471d 100644
                          "name": "10.1",
                          "annotations": {
 -                            "description": "Provides a MariaDB 10.1 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/tree/master/10.1/README.md.",
-+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                              "iconClass": "icon-mariadb",
 -                            "openshift.io/display-name": "MariaDB 10.1",
 +                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.1",
@@ -93,7 +93,7 @@ index 9d8f776..28a471d 100644
                      {
 +                        "name": "10.2",
 +                        "annotations": {
-+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
 +                            "iconClass": "icon-mariadb",
 +                            "openshift.io/display-name": "MariaDB (Ephemeral) 10.2",
 +                            "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -109,7 +109,7 @@ index 9d8f776..28a471d 100644
                          "name": "latest",
                          "annotations": {
 -                            "description": "Provides a MariaDB database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/tree/master/10.1/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB available on OpenShift, including major versions updates.",
-+                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB (Ephemeral) available on OpenShift, including major versions updates.",
++                            "description": "MariaDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mariadb-container/blob/master/10.2/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MariaDB (Ephemeral) available on OpenShift, including major versions updates.",
                              "iconClass": "icon-mariadb",
 -                            "openshift.io/display-name": "MariaDB (Latest)",
 +                            "openshift.io/display-name": "MariaDB (Ephemeral) (latest)",
@@ -199,8 +199,25 @@ index 9d8f776..28a471d 100644
                              "version": "3.2"
                          },
                          "from": {
-@@ -152,11 +193,11 @@
+@@ -150,17 +191,32 @@
+                         }
+                     },
                      {
++                        "name": "3.4",
++                        "annotations": {
++                            "description": "MongoDB database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/blob/master/3.2/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "iconClass": "icon-mongodb",
++                            "openshift.io/display-name": "MongoDB (Ephemeral) 3.4",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "database,mongodb",
++                            "version": "3.4"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/mongodb-34-rhel7:latest"
++                        }
++                    },
++                    {
                          "name": "latest",
                          "annotations": {
 -                            "description": "Provides a MongoDB database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mongodb-container/tree/master/3.2/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MongoDB available on OpenShift, including major versions updates.",
@@ -214,7 +231,12 @@ index 9d8f776..28a471d 100644
                          },
                          "from": {
                              "kind": "ImageStreamTag",
-@@ -172,7 +213,7 @@
+-                            "name": "3.2"
++                            "name": "3.4"
+                         }
+                     }
+                 ]
+@@ -172,7 +228,7 @@
              "metadata": {
                  "name": "mysql",
                  "annotations": {
@@ -223,12 +245,12 @@ index 9d8f776..28a471d 100644
                  }
              },
              "spec": {
-@@ -180,26 +221,26 @@
+@@ -180,26 +236,26 @@
                      {
                          "name": "5.5",
                          "annotations": {
 -                            "description": "Provides a MySQL 5.5 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.5/README.md.",
-+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                              "iconClass": "icon-mysql-database",
 -                            "openshift.io/display-name": "MySQL 5.5",
 +                            "openshift.io/display-name": "MySQL (Ephemeral) 5.5",
@@ -247,7 +269,7 @@ index 9d8f776..28a471d 100644
                          "name": "5.6",
                          "annotations": {
 -                            "description": "Provides a MySQL 5.6 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.6/README.md.",
-+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                              "iconClass": "icon-mysql-database",
 -                            "openshift.io/display-name": "MySQL 5.6",
 +                            "openshift.io/display-name": "MySQL (Ephemeral) 5.6",
@@ -257,12 +279,12 @@ index 9d8f776..28a471d 100644
                              "version": "5.6"
                          },
                          "from": {
-@@ -210,11 +251,11 @@
+@@ -210,11 +266,11 @@
                      {
                          "name": "5.7",
                          "annotations": {
 -                            "description": "Provides a MySQL 5.7 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.7/README.md.",
-+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                              "iconClass": "icon-mysql-database",
 -                            "openshift.io/display-name": "MySQL 5.7",
 +                            "openshift.io/display-name": "MySQL (Ephemeral) 5.7",
@@ -272,12 +294,12 @@ index 9d8f776..28a471d 100644
                              "version": "5.7"
                          },
                          "from": {
-@@ -225,11 +266,11 @@
+@@ -225,11 +281,11 @@
                      {
                          "name": "latest",
                          "annotations": {
 -                            "description": "Provides a MySQL database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/mysql-container/tree/master/5.6/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL available on OpenShift, including major versions updates.",
-+                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL (Ephemeral) available on OpenShift, including major versions updates.",
++                            "description": "MySQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/root/usr/share/container-scripts/mysql/README.md.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of MySQL (Ephemeral) available on OpenShift, including major versions updates.",
                              "iconClass": "icon-mysql-database",
 -                            "openshift.io/display-name": "MySQL (Latest)",
 +                            "openshift.io/display-name": "MySQL (Ephemeral) (latest)",
@@ -287,7 +309,7 @@ index 9d8f776..28a471d 100644
                          },
                          "from": {
                              "kind": "ImageStreamTag",
-@@ -243,6 +284,94 @@
+@@ -243,6 +299,94 @@
              "kind": "ImageStream",
              "apiVersion": "v1",
              "metadata": {
@@ -382,7 +404,7 @@ index 9d8f776..28a471d 100644
                  "name": "nodejs",
                  "annotations": {
                      "openshift.io/display-name": "Node.js"
-@@ -253,30 +382,26 @@
+@@ -253,30 +397,26 @@
                      {
                          "name": "0.10",
                          "annotations": {
@@ -418,7 +440,7 @@ index 9d8f776..28a471d 100644
                              "version": "4"
                          },
                          "from": {
-@@ -287,13 +412,11 @@
+@@ -287,13 +427,11 @@
                      {
                          "name": "6",
                          "annotations": {
@@ -434,7 +456,7 @@ index 9d8f776..28a471d 100644
                              "version": "6"
                          },
                          "from": {
-@@ -302,19 +425,32 @@
+@@ -302,19 +440,105 @@
                          }
                      },
                      {
@@ -460,20 +482,93 @@ index 9d8f776..28a471d 100644
                              "iconClass": "icon-nodejs",
 -                            "openshift.io/display-name": "Node.js (Latest)",
 +                            "openshift.io/display-name": "Node.js (latest)",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,nodejs"
++                        },
++                        "from": {
++                            "kind": "ImageStreamTag",
++                            "name": "8"
++                        }
++                    }
++                ]
++            }
++        },
++        {
++            "kind": "ImageStream",
++            "apiVersion": "v1",
++            "metadata": {
++                "name": "perl",
++                "annotations": {
++                    "openshift.io/display-name": "Perl Sample Application"
++                }
++            },
++            "spec": {
++                "tags": [
++                    {
++                        "name": "5.16",
++                        "annotations": {
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
++                            "iconClass": "icon-perl",
++                            "openshift.io/display-name": "Perl Sample Application 5.16",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,perl",
++                            "version": "5.16"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/perl-516-rhel7:latest"
++                        }
++                    },
++                    {
++                        "name": "5.20",
++                        "annotations": {
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
++                            "iconClass": "icon-perl",
++                            "openshift.io/display-name": "Perl Sample Application 5.20",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,perl",
++                            "version": "5.20"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/perl-520-rhel7:latest"
++                        }
++                    },
++                    {
++                        "name": "5.24",
++                        "annotations": {
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.",
++                            "iconClass": "icon-perl",
++                            "openshift.io/display-name": "Perl Sample Application 5.24",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "quickstart,perl",
++                            "version": "5.24"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/perl-524-rhel7:latest"
++                        }
++                    },
++                    {
++                        "name": "latest",
++                        "annotations": {
++                            "description": "An example Perl application that serves static content. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/s2i-perl-container/blob/master/examples/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Perl Sample Application available on OpenShift, including major versions updates.",
++                            "iconClass": "icon-perl",
++                            "openshift.io/display-name": "Perl Sample Application (latest)",
                              "openshift.io/provider-display-name": "Red Hat, Inc.",
 -                            "sampleRepo": "https://github.com/openshift/nodejs-ex.git",
 -                            "supports": "nodejs",
 -                            "tags": "builder,nodejs"
-+                            "tags": "quickstart,nodejs"
++                            "tags": "quickstart,perl"
                          },
                          "from": {
                              "kind": "ImageStreamTag",
 -                            "name": "6"
-+                            "name": "8"
++                            "name": "5.24"
                          }
                      }
                  ]
-@@ -326,7 +462,7 @@
+@@ -326,7 +550,7 @@
              "metadata": {
                  "name": "php",
                  "annotations": {
@@ -482,7 +577,7 @@ index 9d8f776..28a471d 100644
                  }
              },
              "spec": {
-@@ -334,30 +470,26 @@
+@@ -334,30 +558,26 @@
                      {
                          "name": "5.5",
                          "annotations": {
@@ -520,7 +615,7 @@ index 9d8f776..28a471d 100644
                              "version": "5.6"
                          },
                          "from": {
-@@ -368,13 +500,11 @@
+@@ -368,13 +588,11 @@
                      {
                          "name": "7.0",
                          "annotations": {
@@ -537,7 +632,7 @@ index 9d8f776..28a471d 100644
                              "version": "7.0"
                          },
                          "from": {
-@@ -383,19 +513,32 @@
+@@ -383,19 +601,32 @@
                          }
                      },
                      {
@@ -576,7 +671,7 @@ index 9d8f776..28a471d 100644
                          }
                      }
                  ]
-@@ -407,7 +550,7 @@
+@@ -407,7 +638,7 @@
              "metadata": {
                  "name": "postgresql",
                  "annotations": {
@@ -585,12 +680,12 @@ index 9d8f776..28a471d 100644
                  }
              },
              "spec": {
-@@ -415,26 +558,26 @@
+@@ -415,26 +646,26 @@
                      {
                          "name": "9.2",
                          "annotations": {
 -                            "description": "Provides a PostgreSQL 9.2 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.2.",
-+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                              "iconClass": "icon-postgresql",
 -                            "openshift.io/display-name": "PostgreSQL 9.2",
 +                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.2",
@@ -609,7 +704,7 @@ index 9d8f776..28a471d 100644
                          "name": "9.4",
                          "annotations": {
 -                            "description": "Provides a PostgreSQL 9.4 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.4.",
-+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                              "iconClass": "icon-postgresql",
 -                            "openshift.io/display-name": "PostgreSQL 9.4",
 +                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.4",
@@ -619,12 +714,12 @@ index 9d8f776..28a471d 100644
                              "version": "9.4"
                          },
                          "from": {
-@@ -445,11 +588,11 @@
+@@ -445,11 +676,11 @@
                      {
                          "name": "9.5",
                          "annotations": {
 -                            "description": "Provides a PostgreSQL 9.5 database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.5.",
-+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
                              "iconClass": "icon-postgresql",
 -                            "openshift.io/display-name": "PostgreSQL 9.5",
 +                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.5",
@@ -634,12 +729,29 @@ index 9d8f776..28a471d 100644
                              "version": "9.5"
                          },
                          "from": {
-@@ -460,11 +603,11 @@
+@@ -458,17 +689,32 @@
+                         }
+                     },
                      {
++                        "name": "9.6",
++                        "annotations": {
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",
++                            "iconClass": "icon-postgresql",
++                            "openshift.io/display-name": "PostgreSQL (Ephemeral) 9.6",
++                            "openshift.io/provider-display-name": "Red Hat, Inc.",
++                            "tags": "database,postgresql",
++                            "version": "9.6"
++                        },
++                        "from": {
++                            "kind": "DockerImage",
++                            "name": "registry.access.redhat.com/rhscl/postgresql-96-rhel7:latest"
++                        }
++                    },
++                    {
                          "name": "latest",
                          "annotations": {
 -                            "description": "Provides a PostgreSQL database on RHEL 7. For more information about using this database image, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/tree/master/9.5.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL available on OpenShift, including major versions updates.",
-+                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
++                            "description": "PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/.\n\nWARNING: Any data stored will be lost upon pod destruction. Only use this template for testing\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of PostgreSQL (Ephemeral) available on OpenShift, including major versions updates.",
                              "iconClass": "icon-postgresql",
 -                            "openshift.io/display-name": "PostgreSQL (Latest)",
 +                            "openshift.io/display-name": "PostgreSQL (Ephemeral) (latest)",
@@ -649,7 +761,12 @@ index 9d8f776..28a471d 100644
                          },
                          "from": {
                              "kind": "ImageStreamTag",
-@@ -480,7 +623,7 @@
+-                            "name": "9.5"
++                            "name": "9.6"
+                         }
+                     }
+                 ]
+@@ -480,7 +726,7 @@
              "metadata": {
                  "name": "python",
                  "annotations": {
@@ -658,7 +775,7 @@ index 9d8f776..28a471d 100644
                  }
              },
              "spec": {
-@@ -488,13 +631,11 @@
+@@ -488,13 +734,11 @@
                      {
                          "name": "2.7",
                          "annotations": {
@@ -675,7 +792,7 @@ index 9d8f776..28a471d 100644
                              "version": "2.7"
                          },
                          "from": {
-@@ -505,30 +646,26 @@
+@@ -505,30 +749,26 @@
                      {
                          "name": "3.3",
                          "annotations": {
@@ -713,7 +830,7 @@ index 9d8f776..28a471d 100644
                              "version": "3.4"
                          },
                          "from": {
-@@ -539,13 +676,11 @@
+@@ -539,13 +779,11 @@
                      {
                          "name": "3.5",
                          "annotations": {
@@ -730,7 +847,7 @@ index 9d8f776..28a471d 100644
                              "version": "3.5"
                          },
                          "from": {
-@@ -554,19 +689,32 @@
+@@ -554,19 +792,32 @@
                          }
                      },
                      {
@@ -769,7 +886,7 @@ index 9d8f776..28a471d 100644
                          }
                      }
                  ]
-@@ -578,7 +726,7 @@
+@@ -578,7 +829,7 @@
              "metadata": {
                  "name": "redis",
                  "annotations": {
@@ -778,7 +895,7 @@ index 9d8f776..28a471d 100644
                  }
              },
              "spec": {
-@@ -586,11 +734,11 @@
+@@ -586,11 +837,11 @@
                      {
                          "name": "3.2",
                          "annotations": {
@@ -793,7 +910,7 @@ index 9d8f776..28a471d 100644
                              "version": "3.2"
                          },
                          "from": {
-@@ -601,11 +749,11 @@
+@@ -601,11 +852,11 @@
                      {
                          "name": "latest",
                          "annotations": {
@@ -808,7 +925,7 @@ index 9d8f776..28a471d 100644
                          },
                          "from": {
                              "kind": "ImageStreamTag",
-@@ -621,7 +769,7 @@
+@@ -621,7 +872,7 @@
              "metadata": {
                  "name": "ruby",
                  "annotations": {
@@ -817,7 +934,7 @@ index 9d8f776..28a471d 100644
                  }
              },
              "spec": {
-@@ -629,30 +777,26 @@
+@@ -629,30 +880,26 @@
                      {
                          "name": "2.0",
                          "annotations": {
@@ -855,7 +972,7 @@ index 9d8f776..28a471d 100644
                              "version": "2.2"
                          },
                          "from": {
-@@ -663,13 +807,11 @@
+@@ -663,13 +910,11 @@
                      {
                          "name": "2.3",
                          "annotations": {
@@ -872,7 +989,7 @@ index 9d8f776..28a471d 100644
                              "version": "2.3"
                          },
                          "from": {
-@@ -680,13 +822,11 @@
+@@ -680,13 +925,11 @@
                      {
                          "name": "2.4",
                          "annotations": {
@@ -889,7 +1006,7 @@ index 9d8f776..28a471d 100644
                              "version": "2.4"
                          },
                          "from": {
-@@ -697,13 +837,11 @@
+@@ -697,13 +940,11 @@
                      {
                          "name": "latest",
                          "annotations": {
